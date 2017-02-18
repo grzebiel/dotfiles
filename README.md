@@ -1,13 +1,26 @@
 # my dotfiles
 
 ## Used programs
+
 * Bar: ```i3pystatus```
 * Browser: ```firefox```
 * Editor: ```vim```
-* Font: ```adobe-source-code-pro-fonts```
 * PDF viewer: ```zathura```
 * Terminal emulator: ```terminator```
 * Wm: ```i3```
+
+## Fonts
+
+* Terminal: ```adobe-source-code-pro-fonts```
+* Symbols: ```fonts-awesome```
+
+## Other dependencies
+
+* [junegunn/fzf](https://github.com/junegunn/fzf)
+* [Shougo/dein.vim](https://github.com/Shougo/dein.vim) - rest of plugins will install automaticly
+* [bash_completion](https://github.com/scop/bash_completion)
+* xorg-xdpyinfo - for termFromHere script
+* fortune - form random quote in bash startup
 
 
 ## To load it using git bare repo:
