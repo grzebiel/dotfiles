@@ -1,0 +1,3 @@
+#!/bin/bash
+
+terminator -x bash -c "vim -c \"set spell\" $@"
