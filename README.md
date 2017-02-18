@@ -26,7 +26,7 @@
 ## To load it using git bare repo:
 
 ```bash
-git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.cfg
+git clone --bare git@github.com:grzebiel/dotfiles.git $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
@@ -41,3 +41,6 @@ fi;
 config checkout
 config config status.showUntrackedFiles no
 ```
+
+## Credentials
+Following way of maintaining dotfiles was developed by [Nicola Paolucci](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
