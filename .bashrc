@@ -73,3 +73,6 @@ task list
 
 #used for git bare repo handling
 alias config='/usr/bin/git --git-dir=/home/grzebiel/.cfg/ --work-tree=/home/grzebiel'
+
+#this name really sucks
+alias music='ncmpcpp'
