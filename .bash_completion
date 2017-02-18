@@ -1,0 +1,11 @@
+_viconf()
+{
+    local cur opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts="$(ls ~/configs) ."
+
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+}
+complete -F _viconf viconf
