@@ -159,7 +159,7 @@ bindsym $mod+shift+a exec "pavucontrol"
 # finds out, if available)
 bar {
 #        font pango:Source Sans Pro-10 10
-        status_command python ~/.i3status.py
+        status_command python ~/.config/i3/i3status.py
 #        tray_output HDMI2
 #        tray_output HDMI3
 #        tray_output LVDS1
