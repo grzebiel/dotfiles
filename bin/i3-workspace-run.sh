@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#usage i3-workspace-run.sh [workspace] [application]
+#usage i3-workspace-run.sh [workspace] [application] [class of application]
 #focus window class $3 if process works. Otherwise go to specyfic workspace and launch it
 echo "$1,$2,$3"
 if pidof $2 2>&1 > /dev/null;
