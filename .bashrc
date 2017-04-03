@@ -45,7 +45,7 @@ EC() { printf '\e[1;33mcode %d\e[m\n' $?; }
 trap EC ERR
 
 #custom scripts location added to path
-export PATH=~/configs/bin:~/bin:$PATH
+export PATH=~/bin:$PATH
 
 #cd history
 source ~/.adc_func.sh
