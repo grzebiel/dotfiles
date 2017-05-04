@@ -55,7 +55,7 @@ call dein#add('mileszs/ack.vim')
     endif
 
 " file searcher (not only)
-call dein#add('unite.vim')
+call dein#add('Shougo/unite.vim')
 " vimproc a luncher
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
@@ -280,3 +280,5 @@ nnoremap <Leader>s :Unite buffer<cr>
 map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 imap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
+"youcompleteme
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
