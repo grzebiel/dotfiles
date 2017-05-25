@@ -282,3 +282,4 @@ imap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
 "youcompleteme
 let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
