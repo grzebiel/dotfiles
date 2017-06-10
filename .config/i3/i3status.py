@@ -45,7 +45,7 @@ if isLaptop:
 #
 # Note: the network module requires PyPI package netifaces
 ethernetInterface = "enp0s61f6"
-wifiInterface = "wlp6s0"
+wifiInterface = "wlp5s0"
 if isLaptop:
     ethernetInterface = "enp0s25"
     wifiInterface = "wlp3s0"
