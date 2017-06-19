@@ -76,3 +76,6 @@ alias config='/usr/bin/git --git-dir=/home/grzebiel/.cfg/ --work-tree=/home/grze
 
 #this name really sucks
 alias music='ncmpcpp'
+
+#ssh agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
