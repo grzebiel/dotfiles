@@ -201,7 +201,7 @@ bar {
             urgent_workspace   #2f343a #900000 #ffffff
         }
 }
-set $Locker i3lock -c 000000 -i ~/.config/i3/fut.png -t && sleep 1
+set $Locker ( i3lock -c 000000 -f -n && worktime & ) && sleep 1
 
 
 bindsym Mod1+control+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
