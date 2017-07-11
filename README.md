@@ -14,6 +14,10 @@
 * Terminal: ```adobe-source-code-pro-fonts```
 * Symbols: ```fonts-awesome```
 
+## Tools
+**drbash** - wrapper for docker run that automaticly mounts current dir in `/localMount` and passes common flags
+**worktime** - python script maintains worktime monitorring in `~/.worktime` used with i3lock and systemd
+
 ## Other dependencies
 
 * [junegunn/fzf](https://github.com/junegunn/fzf)

@@ -1,0 +1,9 @@
+[Unit]
+Description=Worktime monitoring
+
+[Service]
+ExecStart=/home/grzebiel/bin/worktime
+Type=oneshot
+
+[Install]
+WantedBy=default.target
