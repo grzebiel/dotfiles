@@ -5,7 +5,7 @@ from os.path import expanduser
 
 
 WORKDIR = expanduser("~") + "/.worktime/"
-TIME_FORMAT = "%H:%M:%S"
+TIME_FORMAT = "%H:%M"
 
 
 class WorkTime(object):
@@ -66,13 +66,16 @@ def main():
     :returns: TODO
     """
     with WorkTime() as wt:
-        wt.update()
-        print(str(
+        if len(wt.db) == 0:
+            wt.update()
+
+        time = str(
                 datetime.datetime.today()
                 - datetime.datetime.combine(
                     datetime.date.today(),
                     wt.get_first())
-                ).split('.')[0])
+                ).split('.')[0].split(':')
+        print(':'.join(time[:-1]))
 
 
 if __name__ == "__main__":
