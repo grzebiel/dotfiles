@@ -40,6 +40,14 @@ class WorkTime(object):
         :returns: TODO """
         return Path(WORKDIR + str(datetime.date.today()))
 
+    def _trim(self, array):
+        a = array[:]
+        try:
+            while True:
+                a.remove('')
+        except ValueError as e:
+            return a
+
     def _load(self, path):
         """TODO: Docstring for load.
         :arg1: TODO
@@ -47,7 +55,7 @@ class WorkTime(object):
         """
         if path.exists():
             return [datetime.datetime.strptime(s, TIME_FORMAT).time()
-                    for s in path.read_text().split('\n')]
+                    for s in self._trim(path.read_text().split('\n'))]
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             return [datetime.datetime.today().time()]
