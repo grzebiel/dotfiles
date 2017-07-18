@@ -15,7 +15,6 @@ call dein#begin(expand('/home/grzebiel/.vim/bundle/'))
 " Let dein manage dein
 call dein#add('Shougo/dein.vim')
 
-
 " Add or remove your Bundles here:
 " file system browser
 call dein#add('scrooloose/nerdtree')
@@ -46,6 +45,7 @@ call dein#add('itchyny/lightline.vim')
         return exists('*fugitive#head') ? ' ' . fugitive#head() : ''
     endfunction
 
+call dein#add('aklt/plantuml-syntax')
 
 " ack (programmers grep) plugin
 call dein#add('mileszs/ack.vim')
@@ -55,7 +55,8 @@ call dein#add('mileszs/ack.vim')
     endif
 
 " file searcher (not only)
-call dein#add('Shougo/unite.vim')
+call dein#add('vim-scripts/unite.vim')
+
 " vimproc a luncher
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
@@ -115,6 +116,9 @@ call dein#add('SirVer/ultisnips')
 
 "better support for Markdown fils
 "call dein#add('plasticboy/vim-markdown')
+"
+" cmake syntax
+call dein#add("nickhutchinson/vim-cmake-syntax")
 
 "
 " Required:
@@ -283,7 +287,16 @@ imap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
 "youcompleteme
 let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_warning_symbol = '.'
+let g:ycm_error_symbol = '..'
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
+"snippets
+let g:snips_author = "grzebiel"
