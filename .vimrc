@@ -114,6 +114,8 @@ call dein#add('SirVer/ultisnips')
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
 
+    " place proper author for snippets
+    let g:snips_author = "grzebiel"
 "better support for Markdown fils
 "call dein#add('plasticboy/vim-markdown')
 "
@@ -219,6 +221,9 @@ set encoding=utf8
 "display relative numbers
 set relativenumber
 
+" cpp don't indent namespaces
+set cinoptions=N-s
+
 "-----------------------------------------------------------
 "---------  Mappings ---------------------------------------
 "-----------------------------------------------------------
@@ -298,5 +303,3 @@ let g:ycm_server_use_vim_stdout = 1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
-"snippets
-let g:snips_author = "grzebiel"
