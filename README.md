@@ -8,6 +8,8 @@
 * PDF viewer: ```zathura```
 * Terminal emulator: ```terminator```
 * Wm: ```i3```
+* File Browser: `ranger`
+    * support img preview in ranger: w3m
 
 ## Fonts
 
