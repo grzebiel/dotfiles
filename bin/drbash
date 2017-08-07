@@ -3,4 +3,4 @@
 image="$1"
 shift;
 
-docker run --rm -it -v$(pwd):/localMount "$@" "$image" /bin/bash
+docker run --rm -it -u "$(id -u):$(id -g)" -v$(pwd):/localMount "$@" "$image" /bin/bash
