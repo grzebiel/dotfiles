@@ -54,12 +54,6 @@ call dein#add('mileszs/ack.vim')
       let g:ackprg = 'ag --vimgrep --ignore "build*" --ignore "tags"'
     endif
 
-" file searcher (not only)
-call dein#add('vim-scripts/unite.vim')
-
-" vimproc a luncher
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-
 " improved cpp coloring
 call dein#add('octol/vim-cpp-enhanced-highlight')
 
@@ -122,7 +116,16 @@ call dein#add('SirVer/ultisnips')
 " cmake syntax
 call dein#add("nickhutchinson/vim-cmake-syntax")
 
-"
+"interpret ansi colorng
+"call dein#add("vim-scripts/AnsiEsc.vim")
+
+" vim fzf plugin
+call dein#add("junegunn/fzf.vim")
+    nnoremap <Leader>s :Buffers<cr>
+    nnoremap <Leader>g "zyiw:Ag <C-r>z<cr>
+    nnoremap <Leader>/ :Ag 
+
+
 " Required:
 call dein#end()
 "
@@ -239,6 +242,10 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Map <Leader>w for :w
 nnoremap <Leader>w :w<CR>
 
+" cpp related mappings
+autocmd FileType cpp nnoremap <F3> :e <C-r>%<C-w>cpp<CR>
+autocmd FileType cpp nnoremap <F2> :e <C-r>%<C-w>hpp<CR>
+
 
 " vim as man pager required
 runtime! ftplugin/man.vim
@@ -259,32 +266,6 @@ set t_Co=256
 let $PAGER=''
 
 nnoremap <silent> <c-p> :FZF<cr>
-"fzf (bash fuzzy finder) vim plugin
-set rtp+=~/.fzf
-
-"Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-"call unite#custom#source('file_rec/async','sorters','sorter_rank', )
-"replacing unite with ctrl-p
-let g:unite_source_file_rec_max_cache_files=5000
-let g:unite_data_directory='~/.vim/.cache/unite'
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable=1
-let g:unite_prompt='» '
-let g:unite_split_rule = 'botright'
-"use ag instead of grep
-if executable('ag')
-    let g:unite_source_grep_command='ag'
-    let g:unite_source_grep_default_opts='--nocolor --nogroup -S -C4 --ignore "build*" --ignore "tags"'
-    let g:unite_source_grep_recursive_opt=''
-endif
-nnoremap <Leader>/ :Unite grep:.<cr>
-"unite grep for search under cursor
-nnoremap <Leader>g "zyiw<space>:Unite grep:.<CR><C-r>z<CR>
-let g:unite_source_history_yank_enable = 1
-nnoremap <Leader>y :Unite history/yank<cr>
-nnoremap <Leader>s :Unite buffer<cr>
 
 "clang format mapping
 map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
@@ -303,3 +284,4 @@ let g:ycm_server_use_vim_stdout = 1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
+set incsearch
