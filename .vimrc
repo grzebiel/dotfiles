@@ -65,7 +65,7 @@ call dein#add('octol/vim-cpp-enhanced-highlight')
 "    let OmniCpp_ShowAccess=1
 "    let OmniCpp_ShowPrototypeInAbbr=1
 "    "create ctags for omnicpp
-    nnoremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+nnoremap <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "Vim git support
 call dein#add('tpope/vim-fugitive')
@@ -98,7 +98,7 @@ let g:ale_linters = {'cpp': []}
 call dein#add('SirVer/ultisnips')
 
     " Snippets are separated from the engine. Add this if you want them:
-    call dein#add('honza/vim-snippets')
+    " call dein#add('honza/vim-snippets')
 
     " Trigger configuration.
     let g:UltiSnipsExpandTrigger="<tab>"
@@ -125,6 +125,7 @@ call dein#add("junegunn/fzf.vim")
     nnoremap <Leader>g "zyiw:Ag <C-r>z<cr>
     nnoremap <Leader>/ :Ag 
 
+call dein#add('potatoesmaster/i3-vim-syntax')
 
 " Required:
 call dein#end()
@@ -138,7 +139,6 @@ if dein#check_install()
     call dein#install()
 endif
 "End NeoBundle Scripts-------------------------
-
 
 "-----------------------------------------------------------
 "---------  Must have  -------------------------------------
@@ -271,10 +271,10 @@ nnoremap <silent> <c-p> :FZF<cr>
 map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 imap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
-"youcompleteme
-let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 cmap w!! w !sudo tee > /dev/null %
 
+"youcompleteme
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
@@ -283,5 +283,9 @@ let g:ycm_error_symbol = '..'
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+nnoremap <space>f :YcmCompleter FixIt<CR>
 
 set incsearch
+
+
+vnoremap / "zy/<C-r>z<cr>
