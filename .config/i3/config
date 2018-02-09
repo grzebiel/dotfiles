@@ -238,3 +238,9 @@ bindsym $mod+minus scratchpad show
 
 #pdfpc
 for_window [ title="^pdfpc - present" ] border none floating enable
+
+# Mod4 == super key (windows on broken keyboard)
+# menage players and its volume
+bindsym Mod4+F5 exec playerctl previous
+bindsym Mod4+F6 exec playerctl play-pause
+bindsym Mod4+F7 exec playerctl next
