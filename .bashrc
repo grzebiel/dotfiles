@@ -60,7 +60,8 @@ export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
 export GOPATH=~/workspace/go/
 
 #fuzzy finder for bash (fzf https://github.com/junegunn/fzf) extension
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
 
 #more readable colors of dirs in ls colorized output
 export LS_COLORS=$LS_COLORS:'di=0;35:'
