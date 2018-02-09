@@ -235,3 +235,6 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+#pdfpc
+for_window [ title="^pdfpc - present" ] border none floating enable
