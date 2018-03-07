@@ -268,8 +268,8 @@ let $PAGER=''
 nnoremap <silent> <c-p> :FZF<cr>
 
 "clang format mapping
-map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
-imap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
+noremap <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+inoremap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
 cmap w!! w !sudo tee > /dev/null %
 
@@ -287,5 +287,10 @@ nnoremap <space>f :YcmCompleter FixIt<CR>
 
 set incsearch
 
-
 vnoremap / "zy/<C-r>z<cr>
+
+nnoremap <bs> <c-^>
+
+nnoremap ; :
+nnoremap : ;
+
