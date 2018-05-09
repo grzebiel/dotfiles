@@ -64,10 +64,11 @@ alias :q='exit'
 alias tmux="TERM=xterm-256color tmux"
 
 # pacaur instead of pacman
-if pacaur -v > /dev/null
+if yay --version > /dev/null
 then
-    alias pacman='pacaur --color always'
-elif yaourt -v > /dev/null
-then 
-    alias pacman='yaourt'
+    alias pacman='yay'
 fi
+
+# copy and paste to commandline
+alias c='xclip -selection clipboard'
+alias v='xclip -selection clipboard -o'
