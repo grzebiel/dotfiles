@@ -13,3 +13,7 @@
  rofi.color-window:                   argb:ee222222,  #FAC863 ,  #FAC863
 ! ! Separator style (none, dash, solid)
 rofi.separator-style: solid
+rofi.ssh-command: {terminal} -e "ssh {host}"
+rofi.terminal: terminator
+rofi.modi: combi,drun,ssh,window,run
+rofi.combi-modi: window,run,ssh
