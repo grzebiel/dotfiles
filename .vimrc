@@ -127,6 +127,8 @@ call dein#add("junegunn/fzf.vim")
 
 call dein#add('potatoesmaster/i3-vim-syntax')
 
+call dein#add('rust-lang/rust.vim')
+
 " Required:
 call dein#end()
 "
@@ -293,4 +295,4 @@ nnoremap <bs> <c-^>
 
 nnoremap ; :
 nnoremap : ;
-
+vnoremap ; :
