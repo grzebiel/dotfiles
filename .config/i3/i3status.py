@@ -83,10 +83,14 @@ status.register("updates",
 
 
 status.register("mpd",
-        format = " {status} {artist} - {title} {song_elapsed}/{song_length}",
+        format = " {status} {title} ({album}) {song_elapsed}/{song_length}",
         host = "localhost",
         port = 6600,
         max_len = 50
+        )
+
+status.register("spotify",
+        format = " {status} {title} ({album})"
         )
 
 if isLaptop:
