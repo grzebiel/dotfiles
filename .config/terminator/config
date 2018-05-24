@@ -1,5 +1,5 @@
 [global_config]
-  inactive_color_offset = 0.54
+  inactive_color_offset = 0.781411359725
   title_hide_sizetext = True
   title_transmit_bg_color = "#fcaf3e"
 [keybindings]
@@ -58,8 +58,8 @@
 [profiles]
   [[default]]
     cursor_color = "#a7a7a7"
-    font = Source Code Pro Medium 14
-    foreground_color = "#00ff00"
+    font = Source Code Pro Medium 12
+    foreground_color = "#f57900"
     scrollback_lines = 2000
     scrollbar_position = hidden
     show_titlebar = False
