@@ -46,6 +46,9 @@
   toggle_zoom = None
   ungroup_all = None
   ungroup_tab = None
+  zoom_in = <Primary><Shift>plus
+  zoom_normal = <Primary><Shift>parenright
+  zoom_out = <Primary><Shift>underscore
 [layouts]
   [[default]]
     [[[child1]]]
@@ -59,7 +62,7 @@
   [[default]]
     cursor_color = "#a7a7a7"
     font = Source Code Pro Medium 12
-    foreground_color = "#f57900"
+    foreground_color = "#eeeeec"
     scrollback_lines = 2000
     scrollbar_position = hidden
     show_titlebar = False
