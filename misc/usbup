@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# upon new device added creates a file that maps devpath to vendor and model
+# id. upon disk removal it reads a file. Notification displayed only if ids are
+# available note that udev sets variables with id and other things. only unique
+# device path is required as an argument
+
+action=$1
+path="/tmp/udev${2//[\/:.-]/_}"
+fulldevname=""
+case $action in 
+    add)
+        event="plugged"
+        shift
+        if [ -n "$ID_VENDOR" ]
+        then
+            fulldevname="$ID_VENDOR $ID_MODEL"
+            echo "$fulldevname" > "$path"
+        fi
+        ;;
+    remove)
+        event="removed"
+        [ -f "$path" ] && fulldevname=$(cat "$path") && rm "$path"
+        shift
+        ;;
+esac
+
+[ -z "$fulldevname" ] &&  exit 0
+
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+su grzebiel -c "notify-send \"device $event $fulldevname\""
