@@ -1,0 +1,4 @@
+#/bin/bash
+
+cp 99-usb.rules /etc/udev/rules.d/
+cp usbup /usr/local/bin

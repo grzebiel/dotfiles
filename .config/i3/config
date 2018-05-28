@@ -30,11 +30,11 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator
 
 # make only small borders
-for_window [class=".*"] border pixel 2
-for_window [class="Terminator"] border none
+for_window [class=".*"] border pixel 1
+for_window [class="Terminator"] border pixel 1
 
 #disable borders touching screen edge
-hide_edge_borders both
+#hide_edge_borders both
 
 # asign firefox to its own workspace
 assign [class="Firefox"] $workspace_browser
@@ -191,19 +191,34 @@ bar {
 #        tray_output HDMI3
 #        tray_output LVDS1
         position top
+        mode hide
+        modifier Mod4
 
         colors {
             background #000000
-            statusline #f57900
+            statusline #ffffff
             separator #000000
 
                                #<border> <bg>  <text>
-            focused_workspace  #f57900 #000000 #f57900
-            active_workspace   #000000 #000000 #f57900
-            inactive_workspace #000000 #000000 #f57900
+            focused_workspace  #cccccc #000000 #ffffff
+            active_workspace   #000000 #000000 #ffffff
+            inactive_workspace #000000 #000000 #888888
             urgent_workspace   #2f343a #900000 #ffffff
         }
 }
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #444444   #353535
+client.focused_inactive #333333 #5f676a #ffffff #222222   #222222
+client.unfocused        #333333 #222222 #888888 #292d2e   #000000
+client.urgent           #2f343a #900000 #ffffff #900000   #f57900
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+
+
+
+
 set $Locker ( i3lock -c 000000 -f -n && worktime & ) && sleep 1
 
 

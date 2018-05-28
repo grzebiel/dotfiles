@@ -273,7 +273,7 @@ nnoremap <silent> <c-p> :FZF<cr>
 noremap <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 inoremap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
-cmap w!! w !sudo tee > /dev/null %
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "youcompleteme
 let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
