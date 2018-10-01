@@ -72,3 +72,4 @@ fi
 # copy and paste to commandline
 alias c='xclip -selection clipboard'
 alias v='xclip -selection clipboard -o'
+alias diff="diff -u --color=always" 
