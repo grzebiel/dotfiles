@@ -1,2 +1,17 @@
 #!/bin/bash
-cat ~/.ssh/config | grep -i '^host ' | awk '{print $2}'
+
+pattern=$1
+shift
+
+listhost()
+{
+    cat ~/.ssh/config | grep -i '^host ' | awk '{$1=""; print $0}'
+}
+
+if [[ "$pattern" ]]
+then
+    listhost | grep -e "$pattern"
+else 
+    listhost
+fi
+
