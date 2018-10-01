@@ -1,0 +1,2 @@
+#!/bin/bash
+cat ~/.ssh/config | grep -i '^host ' | awk '{print $2}'
