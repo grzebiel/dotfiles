@@ -1,0 +1,2 @@
+#!/bin/bash
+listhosts | awk '{print $1}'| while read f; do ln -s sshs $f ; done
