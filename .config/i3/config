@@ -196,7 +196,7 @@ bar {
 
         colors {
             background #000000
-            statusline #ffff00
+            statusline #ffffff
             separator #000000
 
                                #<border> <bg>  <text>
