@@ -40,10 +40,6 @@ if [ -f ~/.quotes ]; then
     . ~/.quotes
 fi
 
-#Display error codes
-EC() { printf '\e[1;33mcode %d\e[m\n' $?; }
-trap EC ERR
-
 #custom scripts location added to path
 export PATH=~/bin:$PATH
 
@@ -67,10 +63,10 @@ source /usr/share/fzf/completion.bash
 export LS_COLORS=$LS_COLORS:'di=0;35:'
 
 #thefuck
-eval "$(thefuck --alias)"
+thefuck --version &> /dev/null && eval "$(thefuck --alias)"
 
 #print my tasks
-task list
+task --version &> /dev/null  && task list
 
 #used for git bare repo handling
 alias config='/usr/bin/git --git-dir=/home/grzebiel/.cfg/ --work-tree=/home/grzebiel'
@@ -80,3 +76,7 @@ alias music='ncmpcpp'
 
 #ssh agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+#Display error codes
+EC() { printf '\e[1;33mcode %d\e[m\n' $?; }
+trap EC ERR
