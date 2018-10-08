@@ -20,11 +20,16 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-export PS1='$(git_ps)\[\033[01;037m\]$\[\033[00m'
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ "$color_prompt" = yes ]; then
+    export PS1='$(git_ps)\[\033[01;037m\]$\[\033[00m'
+else
+    export PS1='$ '
 fi
+
+source_if_exists()
+{
+    [ -f "$1" ] && source "$1"
+}
 
 #interactive conmpletion
 if ! shopt -oq posix; then
@@ -37,14 +42,14 @@ fi
 
 #Quotes
 if [ -f ~/.quotes ]; then
-    . ~/.quotes
+    source ~/.quotes
 fi
 
 #custom scripts location added to path
 export PATH=~/bin:$PATH
 
 #cd history
-source ~/.adc_func.sh
+source_if_exists ~/.adc_func.sh
 
 #vim as man viewer
 export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
@@ -52,27 +57,24 @@ export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
+#more readable colors of dirs in ls colorized output
+export LS_COLORS=$LS_COLORS:'di=0;35:'
+
 #Go environment
 export GOPATH=~/workspace/go/
 
 #fuzzy finder for bash (fzf https://github.com/junegunn/fzf) extension
-source /usr/share/fzf/key-bindings.bash
-source /usr/share/fzf/completion.bash
+source_if_exists /usr/share/fzf/key-bindings.bash
+source_if_exists /usr/share/fzf/completion.bash
 
-#more readable colors of dirs in ls colorized output
-export LS_COLORS=$LS_COLORS:'di=0;35:'
+#custom aliases
+source_if_exists ~/.bash_aliases
 
 #thefuck
 thefuck --version &> /dev/null && eval "$(thefuck --alias)"
 
 #print my tasks
 task --version &> /dev/null  && task list
-
-#used for git bare repo handling
-alias config='/usr/bin/git --git-dir=/home/grzebiel/.cfg/ --work-tree=/home/grzebiel'
-
-#this name really sucks
-alias music='ncmpcpp'
 
 #ssh agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
