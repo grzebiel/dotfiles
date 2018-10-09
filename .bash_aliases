@@ -30,6 +30,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias diff="diff -u --color=always" 
 fi
 
 # some more ls aliases
@@ -58,7 +59,6 @@ alias vi='vim'
 {
     vim "$@"
 }
-alias :q='exit'
 
 # tmux in 265 colors
 alias tmux="TERM=xterm-256color tmux"
@@ -72,4 +72,9 @@ fi
 # copy and paste to commandline
 alias c='xclip -selection clipboard'
 alias v='xclip -selection clipboard -o'
-alias diff="diff -u --color=always" 
+
+#used for git bare repo handling
+alias config='/usr/bin/git --git-dir=/home/grzebiel/.cfg/ --work-tree=/home/grzebiel'
+
+#this name really sucks
+alias music='ncmpcpp'
