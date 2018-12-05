@@ -116,6 +116,8 @@ call dein#add("junegunn/fzf.vim")
     nnoremap <Leader>s :Buffers<cr>
     nnoremap <Leader>g "zyiw:Ag <C-r>z<cr>
     nnoremap <Leader>/ :Ag 
+    nnoremap <silent> <c-p> :FZF<cr>
+
 
 call dein#add('potatoesmaster/i3-vim-syntax')
 
@@ -171,9 +173,6 @@ set autoindent
 " Stop certain movements from always going to the first character of a line.
 set nostartofline
 
-" Display the cursor position
-set ruler
-
 " Always display the status line, even if only one window is displayed
 set laststatus=2
 
@@ -184,8 +183,8 @@ set confirm
 set visualbell
 set t_vb=
 
-" Enable use of the mouse for all modes
-set mouse=a
+" Disable mouse by default
+set mouse=
 
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
@@ -193,6 +192,9 @@ set cmdheight=2
 
 " Display line numbers on the left
 set number
+
+"display relative numbers
+set relativenumber
 
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
@@ -204,9 +206,9 @@ set expandtab
 
 " cursor line highlight
 set cursorline
+hi CursorLine ctermbg=234 cterm=NONE
 " cursorline number set
 hi CursorLineNr cterm=bold ctermfg=Yellow gui=bold guifg=Yellow
-hi CursorLine ctermbg=234 cterm=NONE
 " Spelling mistakes don't interfere with cursorline
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=Red
@@ -214,12 +216,8 @@ hi SpellBad cterm=underline,bold ctermfg=Red
 " always show few top or bottom lines around cursor
 set scrolloff=5
 
-
 "utf8
 set encoding=utf8
-
-"display relative numbers
-set relativenumber
 
 " cpp don't indent namespaces
 set cinoptions=N-s
@@ -246,6 +244,7 @@ autocmd FileType cpp nnoremap <F2> :e <C-r>%<C-w>hpp<CR>
 
 " vim as man pager required
 runtime! ftplugin/man.vim
+let $PAGER=''
 
 " rfc syntax
  if expand('%:t') =~? 'rfc\d\+'
@@ -259,16 +258,11 @@ set list
 " vim using 256 bit colors
 set t_Co=256
 
-" vim as man viewer required:
-let $PAGER=''
-
-nnoremap <silent> <c-p> :FZF<cr>
-
 "clang format mapping
-noremap <C-K> :pyf /usr/share/clang/clang-format.py<cr>
-inoremap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
+autocmd FileType cpp noremap <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+autocmd FileType inoremap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "youcompleteme
 let g:ycm_global_ycm_extra_conf = '~/skel/cpp/.ycm_extra_conf.py'
@@ -292,3 +286,12 @@ vnoremap ; :
 "splits
 nnoremap <C-w>\| :vsp<cr>
 nnoremap <C-w>- :vs<cr>
+
+" reload vimrc on write to it
+augroup VimReload
+autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
+
+command! RC :execute ':next $MYVIMRC'
+command! BIN :execute ':next ~/bin'
