@@ -9,7 +9,7 @@ import socket
 host = socket.gethostname()
 isLaptop = False
 
-if host == "PaCC-RST":
+if host == "hel":
     isLaptop = True
 
 
@@ -48,7 +48,7 @@ ethernetInterface = "enp0s61f6"
 wifiInterface = "wlp5s0"
 if isLaptop:
     ethernetInterface = "enp0s25"
-    wifiInterface = "wlp3s0"
+    wifiInterface = "wlp2s0"
 
 status.register("network",
     interface=ethernetInterface,
@@ -91,12 +91,6 @@ status.register("mpd",
 
 status.register("spotify",
         format = " {status} {title} ({album})"
-        )
-
-if isLaptop:
-    status.register("file",
-        format="{workTime}",
-        components={"workTime": (lambda x: x, "tmp/workTime")}
         )
 
 status.run()
