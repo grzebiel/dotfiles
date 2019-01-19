@@ -37,7 +37,7 @@ for_window [class="Terminator"] border pixel 1
 #hide_edge_borders both
 
 # asign firefox to its own workspace
-assign [class="Qutebrowser"] $workspace_browser
+assign [class="qutebrowser"] $workspace_browser
 # start mail client
 assign [class="Thunderbird"] $workspace_mail
 
@@ -191,7 +191,7 @@ bar {
 #        tray_output HDMI3
 #        tray_output LVDS1
         position top
-        mode hide
+        #mode hide
         modifier Mod4
 
         colors {
