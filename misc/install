@@ -12,3 +12,8 @@ then
     chgrp -R backlight /sys/class/backlight/intel_backlight/brightness
     chmod g+w /sys/class/backlight/intel_backlight/brightness
 fi
+
+# set screenlock on suspend
+cp sleep_lock.service /etc/systemd/system
+systemctl daemon-reload
+systemctl enable sleep_lock.service
