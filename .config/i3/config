@@ -30,7 +30,7 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator
 
 # make only small borders
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 for_window [class="Terminator"] border pixel 1
 
 #disable borders touching screen edge
@@ -208,7 +208,7 @@ bar {
 }
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #444444   #353535
+client.focused          #6c88a9 #285577 #ffffff #444444   #353535
 client.focused_inactive #333333 #5f676a #ffffff #222222   #222222
 client.unfocused        #333333 #222222 #888888 #292d2e   #000000
 client.urgent           #2f343a #900000 #ffffff #900000   #f57900
