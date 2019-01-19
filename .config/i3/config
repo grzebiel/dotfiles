@@ -259,7 +259,12 @@ for_window [ title="^pdfpc - present" ] border none floating enable
 bindsym Mod4+F5 exec playerctl previous
 bindsym Mod4+F6 exec playerctl play-pause
 bindsym Mod4+F7 exec playerctl next
+# manage brightness of the screen
+bindsym Mod4+F8 exec xbacklight -dec 5
+bindsym Mod4+F9 exec xbacklight -inc 5
 
 set $scratch_move sticky enable, move scratchpad
 for_window [ title="notes" ] $scratch_move
 bindsym $mod+n exec notes
+
+
