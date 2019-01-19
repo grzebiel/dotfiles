@@ -84,7 +84,8 @@ call dein#add('airblade/vim-gitgutter')
 
 "syntax asynchronous checker
 call dein#add('w0rp/ale')
-let g:ale_linters = {'cpp': []}
+let g:ale_linters = {'cpp': [], }
+let g:ale_python_flake8_options = '--ignore E501'
 
 "snippets manager
 call dein#add('SirVer/ultisnips')
