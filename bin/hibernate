@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! -f /swapfile ]
+then
+    echo no swap to handle the hibernation >& 2
+    return 1
+fi
+
+sudo su root -c "bash -c \" swapon /swapfile && sleep 2 && systemctl hibernate  && sleep 60 && swapoff /swapfile\" &"
+
