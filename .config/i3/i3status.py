@@ -26,7 +26,7 @@ status.register("clock",
 if isLaptop:
     status.register(
             'battery',
-            format=' {consumption} [{status} ]{percentage_design:.2f}% {remaining}',
+            format='[{status} ]{percentage_design:.2f}% {remaining}',
             alert=True,
             alert_percentage=15,
             status = {
