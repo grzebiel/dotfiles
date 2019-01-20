@@ -127,6 +127,13 @@ call dein#add('rust-lang/rust.vim')
 call dein#add('tpope/vim-commentary')
 call dein#add('wellle/targets.vim')
 
+" distraction free vim
+call dein#add("junegunn/goyo.vim")
+call dein#add("junegunn/limelight.vim")
+    " Color name (:help cterm-colors) or ANSI code
+    let g:limelight_conceal_ctermfg = 'gray'
+    let g:limelight_conceal_ctermfg = 240
+
 " Required:
 call dein#end()
 "
