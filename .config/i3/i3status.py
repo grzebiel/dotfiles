@@ -27,8 +27,7 @@ if isLaptop:
     status.register(
             'battery',
             format='[{status} ]{percentage_design:.2f}% {remaining}',
-            alert=True,
-            alert_percentage=15,
+            alert_percentage=10,
             status = {
                 'DPL': 'DPL',
                 'CHR': '',
