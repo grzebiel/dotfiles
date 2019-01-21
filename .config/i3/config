@@ -191,7 +191,7 @@ bar {
 #        tray_output HDMI3
 #        tray_output LVDS1
         position top
-        #mode hide
+        mode hide
         modifier Mod4
 
         colors {

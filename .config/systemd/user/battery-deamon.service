@@ -1,0 +1,9 @@
+[Unit]
+Description=Battery monitoring deamon
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=bash /home/grzebiel/misc/battery-daemon
+
+[Install]
+WantedBy=default.target
