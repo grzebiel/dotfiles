@@ -15,5 +15,5 @@
 rofi.separator-style: solid
 rofi.ssh-command: {terminal} -e "ssh {host}"
 rofi.terminal: terminator
-rofi.modi: combi,drun,ssh,window,run
-rofi.combi-modi: window,run,ssh
+rofi.modi: combi,run,drun,window
+rofi.combi-modi: window,run
