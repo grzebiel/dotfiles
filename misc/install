@@ -8,9 +8,7 @@ cp usbup /usr/local/bin
 if [ $HOSTNAME == "hel" ]
 then
     #groupadd backlight
-    usermod -aG backlight grzebiel
-    chgrp -R backlight /sys/class/backlight/intel_backlight/brightness
-    chmod g+w /sys/class/backlight/intel_backlight/brightness
+    usermod -aG video grzebiel
 fi
 
 # set screenlock on suspend

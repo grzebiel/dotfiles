@@ -5,7 +5,7 @@ discharginStatus='Discharging'
 discharginStatus='Charging'
 dunst_base="dunstify --appname=BATTERY --replace=99572"
 notify="$dunst_base --timeout 5000"
-warning="$notify --urgency=critical"
+warning="$dunst_base --urgency=critical"
 
 get_state()
 {
@@ -18,14 +18,14 @@ old_state=`get_state "$(acpi -b)"`
 
 while true
 do
-    sleep 0.5
+    sleep 5
     data=`acpi -b`
     state=`get_state "$data"`
     battery_state=`echo $data | grep -P -o '[0-9]+(?=%)'`
 
-    if [ state == 'Discharging' ] && [ $battery_state -le 10 ] 
+    if [ $state == 'Discharging' ] && [ $battery_state -le 10 ]
     then
-        $warning "battery" "is at $battery_state"
+        $warning "battery" "is at $battery_state%"
     fi
 
     if [ $state != $old_state ] && [ $state != "Unknown" ]

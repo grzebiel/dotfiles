@@ -129,6 +129,22 @@ call dein#add('wellle/targets.vim')
 
 " distraction free vim
 call dein#add("junegunn/goyo.vim")
+    function! s:goyo_enter()
+        set noshowmode
+        set noshowcmd
+        set scrolloff=999
+        Limelight
+    endfunction
+    function! s:goyo_leave()
+        set showmode
+        set showcmd
+        set scrolloff=5
+        source $MYVIMRC
+        Limelight!
+    endfunction
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 call dein#add("junegunn/limelight.vim")
     " Color name (:help cterm-colors) or ANSI code
     let g:limelight_conceal_ctermfg = 'gray'
