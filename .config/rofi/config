@@ -13,7 +13,9 @@
  rofi.color-window:                   argb:00000000,  #f57900 ,  #f57900
 ! ! Separator style (none, dash, solid)
 rofi.separator-style: solid
+
 rofi.ssh-command: {terminal} -e "ssh {host}"
 rofi.terminal: terminator
-rofi.modi: combi,run,drun,window
+
+rofi.modi: combi,run,wifi:~/.config/rofi/rofi-netctl.sh
 rofi.combi-modi: window,run
