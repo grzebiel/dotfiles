@@ -15,3 +15,7 @@ fi
 cp sleep_lock.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable sleep_lock.service
+
+# allow user to activate existing wifi profile
+cp switch_wifi_to /usr/local/bin
+echo "grzebiel ALL = NOPASSWD : /usr/local/bin/switch_wifi_to" > /etc/sudoers.d/10_switch_wifi_to
