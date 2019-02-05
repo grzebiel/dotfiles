@@ -17,5 +17,5 @@ rofi.separator-style: solid
 rofi.ssh-command: {terminal} -e "ssh {host}"
 rofi.terminal: terminator
 
-rofi.modi: combi,run,wifi:~/.config/rofi/rofi-netctl.sh
+rofi.modi: combi,run,wifi:~/.config/rofi/rofi-netctl.sh,display:~/.config/rofi/rofi-displays.sh
 rofi.combi-modi: window,run
