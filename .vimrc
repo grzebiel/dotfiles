@@ -149,6 +149,13 @@ call dein#add("junegunn/limelight.vim")
     let g:limelight_conceal_ctermfg = 'gray'
     let g:limelight_conceal_ctermfg = 240
 
+  let g:vimwiki_map_prefix = '<Leader>e'
+call dein#add("vimwiki/vimwiki")
+  let wiki = {}
+  let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+  let wiki.auto_toc = 1
+  let g:vimwiki_list = [wiki]
+
 " Required:
 call dein#end()
 "
