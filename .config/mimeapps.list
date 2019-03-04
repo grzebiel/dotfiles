@@ -1,0 +1,16 @@
+[Default Applications]
+x-scheme-handler/mailto=userapp-Thunderbird-JO09VZ.desktop
+message/rfc822=userapp-Thunderbird-JO09VZ.desktop
+text/html=qutebrowser.desktop
+x-scheme-handler/http=qutebrowser.desktop
+x-scheme-handler/https=qutebrowser.desktop
+x-scheme-handler/about=qutebrowser.desktop
+x-scheme-handler/unknown=qutebrowser.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-JO09VZ.desktop;
+message/rfc822=userapp-Thunderbird-JO09VZ.desktop;
+application/x-shellscript=gvim.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
+application/x-troff-man=gvim.desktop;

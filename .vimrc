@@ -139,7 +139,6 @@ call dein#add("junegunn/goyo.vim")
         set showmode
         set showcmd
         set scrolloff=5
-        source $MYVIMRC
         Limelight!
     endfunction
     autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -149,6 +148,13 @@ call dein#add("junegunn/limelight.vim")
     " Color name (:help cterm-colors) or ANSI code
     let g:limelight_conceal_ctermfg = 'gray'
     let g:limelight_conceal_ctermfg = 240
+
+  let g:vimwiki_map_prefix = '<Leader>e'
+call dein#add("vimwiki/vimwiki")
+  let wiki = {}
+  let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+  let wiki.auto_toc = 1
+  let g:vimwiki_list = [wiki]
 
 " Required:
 call dein#end()
@@ -166,8 +172,6 @@ endif
 "-----------------------------------------------------------
 "---------  Must have  -------------------------------------
 "-----------------------------------------------------------
-" Colorscheme that works nice with vimdiff
-set background=dark
 
 " Enable syntax highlighting
 syntax on
@@ -230,12 +234,6 @@ set expandtab
 
 " cursor line highlight
 set cursorline
-hi CursorLine ctermbg=234 cterm=NONE
-" cursorline number set
-hi CursorLineNr cterm=bold ctermfg=Yellow gui=bold guifg=Yellow
-" Spelling mistakes don't interfere with cursorline
-hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=Red
 
 " always show few top or bottom lines around cursor
 set scrolloff=5
@@ -245,6 +243,9 @@ set encoding=utf8
 
 " cpp don't indent namespaces
 set cinoptions=N-s
+
+"colorscheme
+colorscheme my_dark_colorscheme
 
 "-----------------------------------------------------------
 "---------  Mappings ---------------------------------------
