@@ -1,0 +1,9 @@
+#!/bin/bash
+
+[ -d ~/.cfg ] && c=`git --git-dir ~/.cfg --work-tree ~/ status --porcelain`
+[[ ! -z $c ]] && c=C
+
+[ -d ~/vimwiki ] && w=`git --work-tree ~/vimwiki --git-dir ~/vimwiki/.git status --porcelain`
+[[ ! -z $w ]] && w=W
+
+[[ ! -z $w ]]  || [[ ! -z $c ]] && echo [$c$w]
