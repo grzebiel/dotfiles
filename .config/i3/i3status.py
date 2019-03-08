@@ -20,21 +20,21 @@ status = Status(standalone=True)
 
 # Displays clock like this:
 status.register("clock",
-        format="  %a %-d.%m.%Y   %X",)
+                format="  %a %-d.%m.%Y   %X",)
 
 
 if isLaptop:
     status.register(
-            'battery',
-            format='[{status} ]{percentage_design:.2f}% {remaining}',
-            alert_percentage=10,
-            status = {
-                'DPL': 'DPL',
-                'CHR': '',
-                'DIS': '',
-                'FULL': '',
-                }
-            )
+        'battery',
+        format='[{status} ]{percentage_design:.2f}% {remaining}',
+        alert_percentage=10,
+        status={
+            'DPL': 'DPL',
+            'CHR': '',
+            'DIS': '',
+            'FULL': '',
+        }
+    )
 
 # Shows the address and up/down state of eth0. If it is up the address is shown in
 # green (the default value of color_up) and the CIDR-address is shown
@@ -50,25 +50,25 @@ if isLaptop:
     wifiInterface = "wlp2s0"
 
 status.register("network",
-    interface=ethernetInterface,
-    format_up=" {v4cidr}",
-    format_down="",
-    color_up=COLOR_NORMAL,
-    color_down=COLOR_NORMAL,)
+                interface=ethernetInterface,
+                format_up=" {v4cidr}",
+                format_down="",
+                color_up=COLOR_NORMAL,
+                color_down=COLOR_NORMAL,)
 
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register("network",
-    interface=wifiInterface,
-    format_up=" {essid} {quality:03.0f}%",
-    format_down="",
-    color_up=COLOR_NORMAL,)
+                interface=wifiInterface,
+                format_up=" {essid} {quality:03.0f}%",
+                format_down="",
+                color_up=COLOR_NORMAL,)
 
 # Shows the average load of the last minute and the last 5 minutes
 # (the default value for format is used)
 status.register("temp",
                 format='{temp} °C')
 
-status.register("cpu_usage_bar", bar_type = "vertical")
+status.register("cpu_usage_bar", bar_type="vertical")
 
 status.register("cpu_usage", format='  {usage:02.0f}%')
 
@@ -76,20 +76,20 @@ status.register("cpu_usage", format='  {usage:02.0f}%')
 status.register('mem', format='  {percent_used_mem}%')
 
 status.register("updates",
-        format = " {count}",
-        format_no_updates = "",
-        backends = [pacman.Pacman(), cower.Cower()])
+                format=" {count}",
+                format_no_updates="",
+                backends=[pacman.Pacman(), cower.Cower()])
 
 
 status.register("mpd",
-        format = " {status} {title} ({album}) {song_elapsed}/{song_length}",
-        host = "localhost",
-        port = 6600,
-        max_len = 50
-        )
+                format=" {status} {title} ({album}) {song_elapsed}/{song_length}",
+                host="localhost",
+                port=6600,
+                max_len=50
+                )
 
 status.register("spotify",
-        format = " {status} {title} ({album})"
-        )
+                format=" {status} {title} ({album})"
+                )
 
 status.run()
