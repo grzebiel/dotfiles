@@ -3,5 +3,5 @@ if [ $# -eq 0 ]
 then
     vim -c 'VimwikiIndex'
 else
-    git --git-dir=$HOME/vimwiki/.git --work-tree=$HOME/vimwiki $@
+    git --git-dir=$HOME/vimwiki/.git --work-tree=$HOME/vimwiki "$@"
 fi
