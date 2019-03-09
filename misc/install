@@ -16,6 +16,12 @@ cp sleep_lock.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable sleep_lock.service
 
+# set timer for fetching the synchronized repos
+cp {sync-pull.service,sync-pull.timer} /etc/systemd/system
+systemctl daemon-reload
+systemctl enable sync-pull.service
+systemctl enable sync-pull.timer
+
 # allow user to activate existing wifi profile
 cp switch_wifi_to /usr/local/bin
 echo "grzebiel ALL = NOPASSWD : /usr/local/bin/switch_wifi_to" > /etc/sudoers.d/10_switch_wifi_to

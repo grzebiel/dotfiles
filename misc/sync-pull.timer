@@ -1,0 +1,9 @@
+[Unit]
+Description=fetch my synced stuff
+
+[Timer]
+OnBootSec=30
+OnUnitActiveSec=10m
+
+[Install]
+WantedBy=timers.target

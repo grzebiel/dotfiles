@@ -1,0 +1,5 @@
+#!/bin/bash
+
+$HOME/bin/wiki fetch
+$HOME/bin/config fetch
+date >> /tmp/fetch.log

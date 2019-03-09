@@ -48,5 +48,11 @@ config checkout
 config config status.showUntrackedFiles no
 ```
 
+## installation
+
+`misc/install` is the script to install all needed scripts and enabling all the required deamons (systemd). Requires to be installed as root systemd unit... otherwise it doesnt work
+
+Currently systemd doesn't allow user services to depend on the system services. Therefore there is no way of trigger user service before suspend or after wakeup.
+
 ## Credentials
 Following way of maintaining dotfiles was developed by [Nicola Paolucci](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
