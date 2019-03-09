@@ -1,9 +1,11 @@
 #!/bin/bash
 
-[ -d ~/.cfg ] && c=`config status --porcelain`
-[[ ! -z $c ]] && c=C
+modified()
+{
+    [[ ! `$1 rev-parse HEAD` = `$1 rev-parse origin/master` ]]  || [[ ! `$1 status --porcelain` = "" ]]
+}
 
-[ -d ~/vimwiki ] && w=`wiki status --porcelain`
-[[ ! -z $w ]] && w=W
+modified config && c=C
+modified wiki && w=W
 
 [[ ! -z $w ]]  || [[ ! -z $c ]] && echo [$c$w]
