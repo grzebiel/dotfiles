@@ -1,2 +1,9 @@
 #!/bin/bash
-/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME "$@"
+
+cmd="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+if [ $# -eq 0 ]
+then
+    vim $(config ls-tree -r master --name-only | fzf)
+else
+    $cmd "$@"
+fi
