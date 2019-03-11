@@ -31,7 +31,15 @@
 
 ## To load it using git bare repo:
 
-TODO: streight up the installation without using bare
+```
+git clone
+ls -a dotfiles/ | grep -v "\.\." | tail -n+2 | while read f; do cp -r dotfiles/$f ${HOME}/; done && mv .git .cfg
+rm -rf dotfiles
+config config --local status.showUntrackedFiles no
+./misc/install
+```
+
+remember to clone or init vimwiki, otherwise youll receive the errors from PS
 
 ## installation
 
