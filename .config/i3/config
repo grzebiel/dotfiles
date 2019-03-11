@@ -219,10 +219,10 @@ client.background       #ffffff
 
 
 
-set $Locker ( i3lock -c 000000 -f -n && worktime & ) && sleep 1
+set $Locker i3lock -c 000000 && sleep 1
 
 
-bindsym Mod1+control+s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+bindsym Mod1+control+s exec --no-startup-id  systemctl suspend, mode "default"
 bindsym Mod1+control+l exec --no-startup-id $Locker
 #screenshot
 #bindsym $mod+control+p exec scrot -u -e 'mv $f /tmp'
