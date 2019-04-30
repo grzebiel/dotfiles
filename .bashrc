@@ -82,3 +82,8 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #Display error codes
 EC() { printf '\e[1;33mcode %d\e[m\n' $?; }
 trap EC ERR
+
+
+#set vim as default editor
+export EDITOR=vim
+export VISUAL=vim
