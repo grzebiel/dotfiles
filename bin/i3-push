@@ -1,0 +1,12 @@
+#!/bin/bash
+
+to=$1
+
+db_dir="${HOME}/.i3_workspace_queue"
+mkdir -p "$db_dir";
+touch "$db_dir/$to";
+
+for i in $(seq 1 10)
+do
+    i3-msg rename workspace "$i" to "$to"_"$i"
+done
