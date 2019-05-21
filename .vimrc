@@ -119,6 +119,9 @@ call dein#add("junegunn/fzf.vim")
     nnoremap <Leader>/ :Ag 
     nnoremap <silent> <c-p> :FZF<cr>
 
+    autocmd VimEnter * command! -bang -nargs=* Ag
+        \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'down': '40%'}))
+
 
 call dein#add('potatoesmaster/i3-vim-syntax')
 
