@@ -325,10 +325,10 @@ command! RC :execute ':next $MYVIMRC'
 command! BIN :execute ':next ~/bin'
 
 "move to the split in the direction shown, or create a new split
-nnoremap <silent> <C-h> :call WinMove('h')<cr>
-nnoremap <silent> <C-j> :call WinMove('j')<cr>
-nnoremap <silent> <C-k> :call WinMove('k')<cr>
-nnoremap <silent> <C-l> :call WinMove('l')<cr>
+nnoremap <silent> <Leader>h :call WinMove('h')<cr>
+nnoremap <silent> <Leader>j :call WinMove('j')<cr>
+nnoremap <silent> <Leader>k :call WinMove('k')<cr>
+nnoremap <silent> <Leader>l :call WinMove('l')<cr>
 
 function! WinMove(key)
   let t:curwin = winnr()
