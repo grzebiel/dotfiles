@@ -3,14 +3,7 @@
 cmd="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 if [ $# -eq 0 ]
 then
-    file="$(config ls-tree -r master --name-only | fzf || echo "")"
-
-    if [ -z "$file" ]
-    then
-        exit 0;
-    fi
-
-    cd && vim "$file"
+    cd && vim "$(config ls-tree -r master --name-only | fzf)"
 else
     $cmd "$@"
 fi
