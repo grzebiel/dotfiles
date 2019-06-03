@@ -64,6 +64,8 @@ call dein#add('tpope/vim-fugitive')
 
 "vim show line changed in according to git
 call dein#add('airblade/vim-gitgutter')
+let g:gitgutter_map_keys = 0
+
 
 "syntax external checker
 "call dein#add('scrooloose/syntastic')
