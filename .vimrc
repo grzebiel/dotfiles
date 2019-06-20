@@ -161,6 +161,8 @@ call dein#add("vimwiki/vimwiki")
   let wiki.auto_toc = 1
   let g:vimwiki_list = [wiki]
 
+call dein#add("neoclide/coc.nvim", {'build': './install.sh'})
+
 " Required:
 call dein#end()
 "
@@ -293,15 +295,6 @@ autocmd FileType cpp noremap <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 autocmd FileType inoremap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
 
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-
-"youcompleteme
-let g:ycm_global_ycm_extra_conf = '~/skel/cpp/.ycm_extra_conf.py'
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-let g:ycm_warning_symbol = 'W'
-let g:ycm_error_symbol = 'E'
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-nnoremap <space>f :YcmCompleter FixIt<CR>
 
 set incsearch
 
