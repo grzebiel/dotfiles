@@ -87,3 +87,5 @@ trap EC ERR
 #set vim as default editor
 export EDITOR=vim
 export VISUAL=vim
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
