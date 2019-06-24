@@ -6,4 +6,4 @@ rest=$@
 
 
 scp ~/.remote_configs/{.bashrc.grzybek,.vimrc.grzybek,.tmux.conf.grzybek} "$remote:/tmp/"
-ssh -t "$remote" 'bash --rcfile /tmp/.bashrc.grzybek'
+ssh -At "$remote" 'bash --rcfile /tmp/.bashrc.grzybek'
