@@ -1,3 +1,8 @@
 #!/bin/bash
 
-exec xdg-open "http://wg21.link/$1"
+if [ $# != 0 ]
+then
+    wg21link $@
+else
+    exec rofi -show wg21 -modi "wg21:~/.config/rofi/rofi-wg21.sh"
+fi
