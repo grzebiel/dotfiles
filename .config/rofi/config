@@ -17,7 +17,7 @@ rofi.separator-style: solid
 rofi.ssh-command: {terminal} -e "ssh {host}"
 rofi.terminal: terminator
 
-rofi.modi: combi,run,display:~/.config/rofi/rofi-displays.sh
+rofi.modi: combi,run
 rofi.combi-modi: window,run
 rofi.bw: 0
 rofi.hide-scrollbar: true

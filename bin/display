@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec rofi -show display -modi "display:~/.config/rofi/rofi-displays.sh"
