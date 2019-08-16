@@ -14,7 +14,7 @@
 ## Fonts
 
 * Terminal: ```adobe-source-code-pro-fonts```
-* Symbols: ```fonts-awesome```
+* Symbols: ```awesome-terminal-fonts```
 
 ## Tools
 **drbash** - wrapper for docker run that automaticly mounts current dir in `/localMount` and passes common flags
