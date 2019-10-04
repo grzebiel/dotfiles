@@ -227,21 +227,6 @@ bindsym Mod1+control+l exec --no-startup-id $Locker
 #screenshot
 #bindsym $mod+control+p exec scrot -u -e 'mv $f /tmp'
 
-set $mode_display System (v) docked, (z) docked 3, (h) homeDocked, (x) notDocked
-mode "$mode_display" {
-    bindsym x exec /bin/bash /home/grzebiel/.screenlayout/notDocked.sh
-    bindsym v exec /bin/bash /home/grzebiel/.screenlayout/docked.sh
-    bindsym h exec /bin/bash /home/grzebiel/.screenlayout/homeDocked.sh
-    bindsym z exec /bin/bash /home/grzebiel/.screenlayout/docked3.sh
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+x mode "$mode_display"
-bindsym $mod+shift+x exec /bin/bash /home/grzebiel/.screenlayout/notDocked.sh
-
 bindsym $mod+greater move workspace to output right
 bindsym $mod+less move workspace to output left
 
@@ -262,3 +247,6 @@ bindsym Mod4+F7 exec playerctl next
 # manage brightness of the screen
 bindsym Mod4+F8 exec xbacklight -dec 5
 bindsym Mod4+F9 exec xbacklight -inc 5
+
+# start last display configuration
+exec --no-startup-id /home/grzebiel/.screenlayout/current
