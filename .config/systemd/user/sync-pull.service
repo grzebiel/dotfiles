@@ -1,6 +1,5 @@
 [Unit]
 Description=fetch updates from repos
-After=sleep.target
 
 [Service]
 User=grzebiel
