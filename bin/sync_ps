@@ -5,6 +5,11 @@ modified()
     [[ ! `$1 rev-parse HEAD` = `$1 rev-parse origin/master` ]]  || [[ ! `$1 status --porcelain` = "" ]]
 }
 
+if ! ssh-add -l > /dev/null
+then
+    ssh-add
+fi
+
 modified config && c=C
 modified wiki && w=W
 

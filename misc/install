@@ -19,12 +19,6 @@ sudo cp sleep_lock.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable sleep_lock.service
 
-# set timer for fetching the synchronized repos
-sudo cp {sync-pull.service,sync-pull.timer} /etc/systemd/system
-sudo systemctl daemon-reload
-sudo systemctl enable sync-pull.service
-sudo systemctl enable sync-pull.timer
-
 # enable the ssh-agent
 systemctl enable --user ssh-agent.service
 
