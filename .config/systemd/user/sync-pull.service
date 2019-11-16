@@ -2,7 +2,6 @@
 Description=fetch updates from repos
 
 [Service]
-User=grzebiel
 Environment=SSH_AUTH_SOCK="/run/user/1000/ssh-agent.socket"
 ExecStart=/home/grzebiel/misc/sync-pull
 

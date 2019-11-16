@@ -1,6 +1,0 @@
-#!/bin/bash
-
-{
-$HOME/bin/wiki fetch
-$HOME/bin/config fetch
-} > /dev/null
