@@ -86,8 +86,8 @@ let g:gitgutter_map_keys = 0
 
 "syntax asynchronous checker
 call dein#add('w0rp/ale')
-let g:ale_linters = {'cpp': [], }
-let g:ale_python_flake8_options = '--ignore E501'
+let g:ale_linters = {'cpp': [], 'python': []}
+"let g:ale_python_flake8_options = '--ignore E501'
 
 "snippets manager
 call dein#add('SirVer/ultisnips')
