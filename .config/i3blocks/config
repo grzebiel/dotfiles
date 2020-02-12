@@ -36,7 +36,7 @@ markup=none
 # See the script for details.
 [vpn]
 label=VPN
-command=nordvpn status |grep Country | cut -d ' ' -f2 && echo "#00ff00"&& echo "#00ff00"
+command=nordvpnstatusline
 interval=10
 
 

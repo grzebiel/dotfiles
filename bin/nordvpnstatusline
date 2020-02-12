@@ -1,0 +1,14 @@
+#!/bin/bash
+
+OUT=$(grep Country <(nordvpn status) || echo OFF)
+COLOR="#00ff00"
+if [ "$OUT" = "OFF" ]
+then
+    COLOR="#ff0000"
+else
+    OUT=${OUT##Country: }
+fi
+
+echo $OUT
+echo $OUT
+echo $COLOR
