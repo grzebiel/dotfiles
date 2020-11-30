@@ -61,7 +61,7 @@
 [profiles]
   [[default]]
     cursor_color = "#a7a7a7"
-    font = Source Code Pro Medium 12
+    font = Source Code Pro Medium 10
     foreground_color = "#eeeeec"
     scrollback_lines = 2000
     scrollbar_position = hidden
