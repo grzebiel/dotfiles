@@ -8,6 +8,7 @@ echo -e "It's certainly easier to implement bad security and make it illegal for
 echo -e "Nothing is more dangerous than an idea, when you have only one idea.\n\t-- Emile Chartier"
 echo -e "Writing software is more fun than working.\n\t-- Author Unknown"
 echo -e "The innovation the industry talks about so much is bullshit (...) Anybody can innovate. Don't do this big 'think different'... screw that. It's meaningless. Ninety-nine per cent of it is get the work done.\n\t-- Linus Torvalds"
+echo -e "If we won't focuse on any plan we will not get anywhare, we will get a little bit everywhere\n\t-- Bjerne Stroustrup"
 
 #random quote
 fortune -a
