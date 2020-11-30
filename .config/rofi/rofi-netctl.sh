@@ -16,14 +16,18 @@ else
         exec terminator -T wifi -e "sudo wifi-menu && $notify \"successfully connected via wifi-menu\" || $notify \"connection via wifi-menu failed\""
     fi
 
-    output=$(date; sudo switch_wifi_to "$@" 2>&1)
-    res=$?
-    if [ $res -xe 0 ]
-    then
-        error_file=/tmp/wifi_last_error
-        $notify "failed to connect to $@. see $error_file"
-        echo $output  > $error_file
-    else
-        $notify "connected to $@"
-    fi
+    connect()
+    {
+        output=$(date; sudo switch_wifi_to "$@" 2>&1)
+        res=$?
+        if [ $res -ne 0 ]
+        then
+            error_file=/tmp/wifi_last_error
+            $notify "failed to connect to $@. see $error_file"
+            echo $output  > $error_file
+        else
+            $notify "connected to $@"
+        fi
+    }
+    coproc connect "$@"
 fi
