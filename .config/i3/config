@@ -118,7 +118,7 @@ bindsym $mod+F11 workspace 21
 bindsym $mod+F12 workspace 22
 bindsym $mod+p workspace $workspace_player
 #go to browser workspace and run firefox if its not running already
-bindsym $mod+b exec pidof -x qutebrowser || qutebrowser && i3-msg workspace $workspace_browser
+bindsym $mod+b workspace $workspace_browser
 bindsym $mod+m exec pidof thunderbird || thunderbird && i3-msg workspace $workspace_mail
 
 # move focused container to workspace
