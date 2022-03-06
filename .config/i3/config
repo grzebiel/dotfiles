@@ -92,7 +92,7 @@ bindsym $mod+q focus child
 
 set $workspace_browser ""
 set $workspace_mail ""
-set $workspace_player ""
+# set $workspace_player ""
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -116,9 +116,13 @@ bindsym $mod+F9 workspace 19
 bindsym $mod+F10 workspace 20
 bindsym $mod+F11 workspace 21
 bindsym $mod+F12 workspace 22
-bindsym $mod+p workspace $workspace_player
+# bindsym $mod+p workspace $workspace_player
+# bindsym $mod+p [con_mark="music"] scratchpad show
+bindsym $mod+p [class="Spotify"] scratchpad show
+for_window [class="Spotify"] mark "music", move scratchpad
+# for_window [class="Spotify"] mark "music", move scratchpad
 #go to browser workspace and run firefox if its not running already
-bindsym $mod+b exec pidof -x qutebrowser || qutebrowser && i3-msg workspace $workspace_browser
+bindsym $mod+b workspace $workspace_browser
 bindsym $mod+m exec pidof thunderbird || thunderbird && i3-msg workspace $workspace_mail
 
 # move focused container to workspace

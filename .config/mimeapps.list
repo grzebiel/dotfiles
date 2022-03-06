@@ -1,20 +1,23 @@
 [Default Applications]
 x-scheme-handler/mailto=userapp-Thunderbird-JO09VZ.desktop
 message/rfc822=userapp-Thunderbird-JO09VZ.desktop
-text/html=org.qutebrowser.qutebrowser.desktop
-x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
-x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
-x-scheme-handler/about=org.qutebrowser.qutebrowser.desktop
-x-scheme-handler/unknown=org.qutebrowser.qutebrowser.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-JO09VZ.desktop;
 message/rfc822=userapp-Thunderbird-JO09VZ.desktop;
 application/x-shellscript=gvim.desktop;
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
+application/pdf=google-chrome.desktop;org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
 application/x-troff-man=gvim.desktop;
 video/mp4=vlc.desktop;
 video/x-matroska=vlc.desktop;
 application/x-wine-extension-gp5=wine-extension-gp5.desktop;
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=gvim.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;gvim.desktop;
+image/tiff=ristretto.desktop;feh.desktop;gimp.desktop;
+application/x-hdf=gvim.desktop;
+application/json=gvim.desktop;vim.desktop;
