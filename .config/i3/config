@@ -90,6 +90,9 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+q focus child
 
+# screenshot
+bindsym $mod+c exec flameshot gui
+
 set $workspace_browser ""
 set $workspace_mail ""
 # set $workspace_player ""
