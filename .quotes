@@ -9,6 +9,7 @@ echo -e "Nothing is more dangerous than an idea, when you have only one idea.\n\
 echo -e "Writing software is more fun than working.\n\t-- Author Unknown"
 echo -e "The innovation the industry talks about so much is bullshit (...) Anybody can innovate. Don't do this big 'think different'... screw that. It's meaningless. Ninety-nine per cent of it is get the work done.\n\t-- Linus Torvalds"
 echo -e "If we won't focuse on any plan we will not get anywhare, we will get a little bit everywhere\n\t-- Bjerne Stroustrup"
+echo -e "We are the only species that will fallow unstable leaders\n\t-- Cesar Millan"
 
 #random quote
 fortune -a

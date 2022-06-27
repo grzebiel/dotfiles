@@ -75,3 +75,6 @@ alias v='xclip -selection clipboard -o'
 
 #this name really sucks
 alias music='ncmpcpp'
+
+#sane date format
+alias isodate='date +"%Y-%m-%d"'
