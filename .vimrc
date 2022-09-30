@@ -84,35 +84,24 @@ let g:gitgutter_map_keys = 0
 "    let g:syntastic_cpp_compiler = "clang++"
 "    let g:syntastic_cpp_compiler_options = '-std=c++14'"
 
-"syntax asynchronous checker
-call dein#add('w0rp/ale')
-let g:ale_linters = {'cpp': [], 'python': []}
-"let g:ale_python_flake8_options = '--ignore E501'
-
 "snippets manager
-call dein#add('SirVer/ultisnips')
+" call dein#add('SirVer/ultisnips')
 
-    " Snippets are separated from the engine. Add this if you want them:
-    " call dein#add('honza/vim-snippets')
+"     " Snippets are separated from the engine. Add this if you want them:
+"     " call dein#add('honza/vim-snippets')
 
-    " Trigger configuration.
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<c-b>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"     " Trigger configuration.
+"     let g:UltiSnipsExpandTrigger="<tab>"
+"     let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
+"     " If you want :UltiSnipsEdit to split your window.
+"     let g:UltiSnipsEditSplit="vertical"
 
-    " place proper author for snippets
-    let g:snips_author = "grzebiel"
-"better support for Markdown fils
-"call dein#add('plasticboy/vim-markdown')
-"
+"     " place proper author for snippets
+"     let g:snips_author = "grzebiel"
 " cmake syntax
 call dein#add("nickhutchinson/vim-cmake-syntax")
-
-"interpret ansi colorng
-"call dein#add("vim-scripts/AnsiEsc.vim")
 
 " vim fzf plugin
 call dein#add("junegunn/fzf.vim")
@@ -123,6 +112,8 @@ call dein#add("junegunn/fzf.vim")
 
     autocmd VimEnter * command! -bang -nargs=* Ag
         \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'down': '40%'}))
+    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+    let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4"
 
 
 call dein#add('potatoesmaster/i3-vim-syntax')
@@ -160,8 +151,18 @@ call dein#add("vimwiki/vimwiki")
   let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
   let wiki.auto_toc = 1
   let g:vimwiki_list = [wiki]
-
-call dein#add("neoclide/coc.nvim", {'build': './install.sh'})
+call dein#add("mfussenegger/nvim-dap")
+lua <<EOF
+local dap = require('dap')
+dap.adapters.python = {
+    type = 'executable';
+    command = '/usr/bin/python';
+    args = {'-m', 'debugpy.adapter' };
+}
+EOF
+call dein#add("rcarriga/nvim-dap-ui")
+call dein#add("neoclide/coc.nvim", {'build': 'yarn install'})
+call dein#add("Maan2003/lsp_lines.nvim")
 
 " Required:
 call dein#end()
@@ -290,10 +291,6 @@ set list
 " vim using 256 bit colors
 set t_Co=256
 
-"clang format mapping
-autocmd FileType cpp noremap <C-K> :pyf /usr/share/clang/clang-format.py<cr>
-autocmd FileType inoremap <C-K> <c-o>:pyf usr/share/clang/clang-format.py<cr>
-
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 set incsearch
@@ -337,3 +334,8 @@ function! WinMove(key)
     exec "wincmd ".a:key
   endif
 endfunction
+
+
+"always have signcolumn on 
+set signcolumn=yes
+set fillchars+=vert:\ 

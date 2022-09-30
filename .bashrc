@@ -91,5 +91,5 @@ export VISUAL=vim
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # >>>> Vagrant command completion (start)
-. /opt/vagrant/embedded/gems/2.2.19/gems/vagrant-2.2.19/contrib/bash/completion.sh
-# <<<<  Vagrant command completion (end)
+. /opt/vagrant/embedded/gems/2.3.0/gems/vagrant-2.3.0/contrib/bash/completion.sh
+# <<<<  Vagrant command completion ()

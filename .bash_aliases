@@ -52,12 +52,13 @@ alias cd..='cd ..; pwd'
 alias lns='ln -s'
 
 # you dont want vi...
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 
 # some vim like aliases
 :e()
 {
-    vim "$@"
+    nvim "$@"
 }
 
 # tmux in 265 colors

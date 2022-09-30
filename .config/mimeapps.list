@@ -7,6 +7,7 @@ x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
+x-scheme-handler/discord-389176180877688832=discord-389176180877688832.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-JO09VZ.desktop;

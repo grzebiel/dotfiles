@@ -11,3 +11,7 @@ hi CursorLineNr cterm=bold ctermfg=Yellow gui=bold guifg=Yellow
 " Spelling mistakes don't interfere with cursorline
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=Red
+hi CocFloating ctermbg=black
+hi SignColumn ctermbg=NONE
+hi VertSplit ctermbg=NONE cterm=NONE
+hi Pmenu ctermbg=black ctermfg=White
