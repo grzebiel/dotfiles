@@ -14,6 +14,11 @@ vim.opt.cmdheight=2
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- ignorecase for tab completion commands
+vim.opt.wildmenu = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- indentation
 vim.opt.shiftwidth=4
 vim.opt.softtabstop=4
@@ -30,10 +35,6 @@ vim.opt.cinoptions="N-s"
 
 -- colorscheme
 vim.cmd [[colorscheme my_dark_colorscheme]]
-
--- nerdtree options
-vim.cmd [[nnoremap <Leader>n :NERDTreeToggle<cr>]]
-vim.g.NERDTreeWinPos='right'
 
 -- lightline options
 vim.cmd [[    let g:lightline = {
@@ -145,5 +146,15 @@ vim.cmd [[
     endfunction
 ]]
 
+-- always show the signcolumn to avoid screen shift
 vim.opt.signcolumn = "yes"
+
+-- no symbel in window splits
 vim.opt.fillchars:append("vert: ")
+
+-- ignore backup files to avoid coc issues
+vim.opt.backup = false
+vim.opt.writebackup = false
+
+-- faster updatetime
+vim.opt.updatetime=300

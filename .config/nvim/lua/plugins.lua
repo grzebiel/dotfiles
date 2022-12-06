@@ -15,7 +15,16 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- directory tree
-  use 'scrooloose/nerdtree'
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
+    config = function() require 'configs/neotree' end
+  }
 
   -- status line
   use 'itchyny/lightline.vim'
@@ -48,10 +57,22 @@ return require('packer').startup(function(use)
   use 'junegunn/limelight.vim'
 
   -- lsp support
-  use {'neoclide/coc.nvim', branch = 'release'}
+  use {
+      'neoclide/coc.nvim', branch = 'release',
+      config = function() require 'configs/coc' end
+  }
 
   -- inline lsp info
-  use "Maan2003/lsp_lines.nvim"
+  use {
+      "Maan2003/lsp_lines.nvim",
+      config = function() require 'configs/lsp_lines' end
+  }
+
+  -- keymaps popup
+  use {
+    "folke/which-key.nvim",
+    config = function() require 'configs/which_key' end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

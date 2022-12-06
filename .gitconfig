@@ -13,7 +13,7 @@
 	cmd = vimdiff $LOCAL $REMOTE
 
 [core]
-	editor = vim
+	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
 	tool = vimdiff
