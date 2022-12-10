@@ -74,10 +74,16 @@ return require('packer').startup(function(use)
     config = function() require 'configs/which_key' end
   }
 
+  use {
+    "akinsho/toggleterm.nvim",
+    config = function() require "configs/toggleterm" end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
+
 end)
 

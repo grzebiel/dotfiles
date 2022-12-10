@@ -158,3 +158,8 @@ vim.opt.writebackup = false
 
 -- faster updatetime
 vim.opt.updatetime=300
+
+-- remap terminal esc
+vim.cmd [[
+    tnoremap <c-\> <c-\><c-n>
+]]
