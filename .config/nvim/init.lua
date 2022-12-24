@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 require('plugins')
 
--- always display status line
-vim.opt.laststatus = 2
+-- display status line only once
+vim.opt.laststatus = 3
 
 -- ask on exiting unsaved file
 vim.opt.confirm = true
@@ -161,5 +161,11 @@ vim.opt.updatetime=300
 
 -- remap terminal esc
 vim.cmd [[
-    tnoremap <c-\> <c-\><c-n>
+    tnoremap <esc><esc> <c-\><c-n>
 ]]
+
+-- completeopt
+vim.opt.completeopt = {"menuone", "noselect", "preview"}
+
+-- more colors
+vim.opt.termguicolors = true

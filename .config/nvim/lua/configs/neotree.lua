@@ -214,3 +214,4 @@ require("neo-tree").setup({
 })
 
 vim.cmd([[nnoremap \ :Neotree reveal=true position=right toggle=true<cr>]])
+vim.cmd([[nnoremap \| :Neotree source=git_status reveal=true position=float toggle=true<cr>]])

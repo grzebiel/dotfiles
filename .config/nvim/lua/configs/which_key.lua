@@ -7,5 +7,6 @@ require("which-key").setup {
     },
     window = {
         padding = { 2, 2, 2, 2},
+        border = "rounded",
     }
 }

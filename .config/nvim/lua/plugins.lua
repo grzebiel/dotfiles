@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
 
   -- status line
   use 'itchyny/lightline.vim'
+  -- use {"rebelot/heirline.nvim",
+  --   config = function() require 'configs/heirline' end}
 
   -- ack/ag support
   use 'mileszs/ack.vim'
@@ -45,9 +47,6 @@ return require('packer').startup(function(use)
   -- fzf
   use 'junegunn/fzf.vim'
 
-  -- rust support
-  use 'rust-lang/rust.vim'
-
   -- auto comment out
   use 'tpope/vim-commentary'
 
@@ -61,6 +60,9 @@ return require('packer').startup(function(use)
       'neoclide/coc.nvim', branch = 'release',
       config = function() require 'configs/coc' end
   }
+
+  -- lua support
+  use 'rafcamlet/coc-nvim-lua'
 
   -- inline lsp info
   use {

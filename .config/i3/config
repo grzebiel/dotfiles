@@ -32,6 +32,7 @@ bindsym $mod+Return exec kitty
 # make only small borders
 for_window [class=".*"] border pixel 2
 for_window [class="Terminator"] border pixel 1
+for_window [class="kitty"] border pixel 1
 
 #disable borders touching screen edge
 #hide_edge_borders both
