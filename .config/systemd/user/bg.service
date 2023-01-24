@@ -1,0 +1,8 @@
+[Unit]
+Description=sets background
+
+[Service]
+ExecStart=/home/grzebiel/bin/bg_update
+
+[Install]
+WantedBy=default.target
