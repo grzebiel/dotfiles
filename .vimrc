@@ -163,6 +163,9 @@ EOF
 call dein#add("rcarriga/nvim-dap-ui")
 call dein#add("neoclide/coc.nvim", {'build': 'yarn install'})
 call dein#add("Maan2003/lsp_lines.nvim")
+call dein#add('nvim-tree/nvim-web-devicons')
+call dein#add("nvim-lua/plenary.nvim")
+call dein#add("sindrets/diffview.nvim")
 
 " Required:
 call dein#end()

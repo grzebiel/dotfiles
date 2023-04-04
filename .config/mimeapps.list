@@ -22,3 +22,4 @@ application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-ca
 image/tiff=ristretto.desktop;feh.desktop;gimp.desktop;
 application/x-hdf=gvim.desktop;
 application/json=gvim.desktop;vim.desktop;
+audio/x-gtp=tuxguitar.desktop;

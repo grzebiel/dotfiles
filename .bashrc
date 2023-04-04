@@ -1,3 +1,4 @@
+#!/bin/bash
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -54,7 +55,7 @@ source_if_exists ~/.adc_func.sh
 
 #vim as man viewer
 export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist nonumber norelativenumber' -c 'map q :q<CR>' \
+    nvim -R -c 'set ft=man nomod nolist nonumber norelativenumber' -c 'map q :q<CR>' \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
@@ -92,5 +93,5 @@ export VISUAL=nvim
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # >>>> Vagrant command completion (start)
-. /opt/vagrant/embedded/gems/2.3.2/gems/vagrant-2.3.2/contrib/bash/completion.sh
+. /opt/vagrant/embedded/gems/2.3.3/gems/vagrant-2.3.3/contrib/bash/completion.sh
 # <<<<  Vagrant command completion ()

@@ -127,10 +127,14 @@ vim.cmd [[
     nnoremap <C-w>\| :vsp<cr>
     nnoremap <C-w>- :vs<cr>
 
-    nnoremap <silent> <Leader>h :call WinMove('h')<cr>
-    nnoremap <silent> <Leader>j :call WinMove('j')<cr>
-    nnoremap <silent> <Leader>k :call WinMove('k')<cr>
-    nnoremap <silent> <Leader>l :call WinMove('l')<cr>
+    nnoremap <silent> <C-h> :call WinMove('h')<cr>
+    nnoremap <silent> <C-j> :call WinMove('j')<cr>
+    nnoremap <silent> <C-k> :call WinMove('k')<cr>
+    nnoremap <silent> <C-l> :call WinMove('l')<cr>
+    tnoremap <silent> <C-h> <c-\><c-n>:call WinMove('h')<cr>
+    tnoremap <silent> <C-j> <c-\><c-n>:call WinMove('j')<cr>
+    tnoremap <silent> <C-k> <c-\><c-n>:call WinMove('k')<cr>
+    tnoremap <silent> <C-l> <c-\><c-n>:call WinMove('l')<cr>
 
     function! WinMove(key)
       let t:curwin = winnr()
@@ -150,7 +154,7 @@ vim.cmd [[
 vim.opt.signcolumn = "yes"
 
 -- no symbel in window splits
-vim.opt.fillchars:append("vert: ")
+vim.opt.fillchars:append("vert:│")
 
 -- ignore backup files to avoid coc issues
 vim.opt.backup = false

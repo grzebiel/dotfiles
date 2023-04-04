@@ -1,8 +1,19 @@
 {
+    "diagnostic.messageTarget": "float",
+    "signature.target": "float",
+    "floatFactory.floatConfig": {
+        "border": true,
+        "rounded": true
+    },
+    "suggest.floatConfig": {
+        "border": true,
+        "rounded": true
+    },
     "signature.enable": true,
     "suggest.timeout": 500,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
-    "rust-analyzer.hover.documentation.enable": true
+    "rust-analyzer.hover.documentation.enable": true,
+    "pyright.trace.server": "verbose"
 }

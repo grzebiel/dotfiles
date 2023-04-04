@@ -25,3 +25,5 @@ hi Statement ctermfg=11 gui=NONE guifg=#ffff60
 
 " Whichkey window
 hi WhichKeyFloat ctermbg=NONE guibg=NONE
+
+hi Normal ctermbg=black

@@ -1,7 +1,7 @@
 {
-    "diagnostic.messageTarget": "echo",
-    "signature.target": "echo",
-    "coc.preferences.hoverTarget": "echo",
+    "diagnostic.messageTarget": "float",
+    "signature.target": "float",
+    "coc.preferences.hoverTarget": "float",
     "suggest.timeout": 500,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": ["--ignore", "E501"],

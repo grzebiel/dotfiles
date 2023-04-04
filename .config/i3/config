@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -249,12 +249,12 @@ for_window [ title="^pdfpc - present" ] border none floating enable
 
 # Mod4 == super key (windows on broken keyboard)
 # menage players and its volume
-bindsym Mod4+F5 exec playerctl previous
-bindsym Mod4+F6 exec playerctl play-pause
-bindsym Mod4+F7 exec playerctl next
-# manage brightness of the screen
-bindsym Mod4+F8 exec xbacklight -dec 5
-bindsym Mod4+F9 exec xbacklight -inc 5
+# bindsym Mod4+F5 exec playerctl previous
+# bindsym Mod4+F6 exec playerctl play-pause
+# bindsym Mod4+F7 exec playerctl next
+# # manage brightness of the screen
+# bindsym Mod4+F8 exec xbacklight -dec 5
+# bindsym Mod4+F9 exec xbacklight -inc 5
 
 # start last display configuration
 exec --no-startup-id /home/grzebiel/.screenlayout/current
