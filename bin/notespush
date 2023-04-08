@@ -1,5 +1,5 @@
 #!/bin/bash
 cd ~/obsidian/own/ || exit 1
 git add .
-git commit -m 'up from loki'
+git commit -m 'up from $(hostname)'
 git push
