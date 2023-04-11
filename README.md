@@ -2,19 +2,14 @@
 
 ## Used programs
 
-* Bar: ```i3pystatus```
-* Browser: ```firefox```
-* Editor: ```vim```
+* Bar: ```polybar```
+* Browser: ```chrome```
+* Editor: ```neovim```
 * PDF viewer: ```zathura```
-* Terminal emulator: ```terminator```
+* Terminal emulator: ```kitty```
 * Wm: ```i3```
 * File Browser: `ranger`
     * support img preview in ranger: w3m
-
-## Fonts
-
-* Terminal: ```adobe-source-code-pro-fonts```
-* Symbols: ```awesome-terminal-fonts```
 
 ## Tools
 **drbash** - wrapper for docker run that automaticly mounts current dir in `/localMount` and passes common flags
