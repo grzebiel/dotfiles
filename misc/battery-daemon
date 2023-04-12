@@ -21,7 +21,7 @@ do
     sleep 5
     data=`acpi -b`
     state=`get_state "$data"`
-    battery_state=`echo $data | grep -P -o '[0-9]+(?=%)'`
+    battery_state=`echo $data | grep -P -o '[0-9]+(?=%)' | head -n1`
 
     if [ $state == 'Discharging' ] && [ $battery_state -le 10 ]
     then

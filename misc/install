@@ -5,7 +5,7 @@ sudo cp 99-usb.rules /etc/udev/rules.d/
 sudo cp usbup /usr/local/bin
 
 # set user to modify backlight HEL
-if [ $HOSTNAME == "hel" ]
+if [ $HOSTNAME == "hel" ] || [ $HOSTNAME == "frigg" ]
 then
     #groupadd backlight
     sudo usermod -aG video grzebiel
@@ -25,3 +25,6 @@ systemctl enable --user ssh-agent.service
 # allow user to activate existing wifi profile
 sudo cp switch_wifi_to /usr/local/bin
 sudo bash -c 'echo "grzebiel ALL = NOPASSWD : /usr/local/bin/switch_wifi_to" > /etc/sudoers.d/10_switch_wifi_to'
+
+# add modification rights brightness to video group via udev
+sudo cp backlight.rules /etc/udev/rules.d
