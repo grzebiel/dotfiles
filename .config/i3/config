@@ -259,7 +259,7 @@ for_window [ title="^pdfpc - present" ] border none floating enable
 # start last display configuration
 exec --no-startup-id /home/grzebiel/.screenlayout/current
 
-gaps inner 6px
+gaps inner 8px
 # gaps outer 4 px
 smart_gaps off
 exec --no-startup-id feh --bg-fill --bg-scale ~/Desktop/walpaper.jpg
