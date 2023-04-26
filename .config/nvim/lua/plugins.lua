@@ -76,10 +76,14 @@ return require('packer').startup(function(use)
     config = function() require 'configs/which_key' end
   }
 
+  -- terminal windows
   use {
     "akinsho/toggleterm.nvim",
     config = function() require "configs/toggleterm" end,
   }
+
+  -- openai interface
+  use 'madox2/vim-ai'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
