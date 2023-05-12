@@ -1,5 +1,7 @@
 #!/bin/bash
 cd ~/obsidian/own/ || exit 1
 git add .
-git commit -m 'up from $(hostname)'
+git commit -m "up from $(hostname)"
+git pull
 git push
+git pull
