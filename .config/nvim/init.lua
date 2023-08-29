@@ -60,10 +60,10 @@ vim.cmd [[
     endfunction
 ]]
 
--- ack use ag 
+-- ack use rg
 vim.cmd [[
-    if executable('ag')
-      let g:ackprg = 'ag --vimgrep --ignore "build*" --ignore "tags"'
+    if executable('rg')
+      let g:ackprg = 'rg --vimgrep --ignore "build*" --ignore "tags"'
     endif
 ]]
 
