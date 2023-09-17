@@ -57,12 +57,38 @@ return require('packer').startup(function(use)
 
   -- lsp support
   use {
-      'neoclide/coc.nvim', branch = 'release',
-      config = function() require 'configs/coc' end
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v2.x',
+  config = function() require 'configs/lsp_zero' end,
+  requires = {
+        -- LSP Support
+        {'neovim/nvim-lspconfig'},             -- Required
+        {'williamboman/mason.nvim'},           -- Optional
+        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+        -- Autocompletion
+        {'hrsh7th/nvim-cmp'},     -- Required
+        {'hrsh7th/cmp-nvim-lsp'}, -- Required
+        {'L3MON4D3/LuaSnip'},     -- Required
+    }
   }
 
-  -- lua support
-  use 'rafcamlet/coc-nvim-lua'
+  -- treesitter
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
+      config = function() require 'configs/treesitter' end
+  }
+  -- use {
+  --     'neoclide/coc.nvim', branch = 'release',
+  --     config = function() require 'configs/coc' end
+  -- }
+
+  -- -- lua support
+  -- use 'rafcamlet/coc-nvim-lua'
 
   -- inline lsp info
   use {
