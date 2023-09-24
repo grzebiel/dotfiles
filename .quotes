@@ -10,8 +10,10 @@ echo -e "Writing software is more fun than working.\n\t-- Author Unknown"
 echo -e "The innovation the industry talks about so much is bullshit (...) Anybody can innovate. Don't do this big 'think different'... screw that. It's meaningless. Ninety-nine per cent of it is get the work done.\n\t-- Linus Torvalds"
 echo -e "If we won't focuse on any plan we will not get anywhare, we will get a little bit everywhere\n\t-- Bjerne Stroustrup"
 echo -e "We are the only species that will fallow unstable leaders\n\t-- Cesar Millan"
+echo -e "I apologize for such a long letter - I didn't have time to write a short one.\n\t-- Mark Twain"
 
 #random quote
+echo -e "\n"
 fortune -a
 echo -e
 echo -e "\n"

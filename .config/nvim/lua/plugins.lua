@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
-    requires = { 
+    requires = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
   use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
-  config = function() require 'configs/lsp_zero' end,
+  config = function() require 'configs.lsp_zero' end,
   requires = {
         -- LSP Support
         {'neovim/nvim-lspconfig'},             -- Required
@@ -71,6 +71,12 @@ return require('packer').startup(function(use)
         {'hrsh7th/cmp-nvim-lsp'}, -- Required
         {'L3MON4D3/LuaSnip'},     -- Required
     }
+  }
+
+  -- lsp-inlayhits
+  use {
+      'lvimuser/lsp-inlayhints.nvim',
+      config = function() require 'configs.lsp_inlayhints' end,
   }
 
   -- treesitter

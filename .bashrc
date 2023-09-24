@@ -54,10 +54,7 @@ export PATH=~/bin:$PATH
 source_if_exists ~/.adc_func.sh
 
 #vim as man viewer
-export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    nvim -R -c 'set ft=man nomod nolist nonumber norelativenumber' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+export MANPAGER="nvim -c 'Man!' -o -"
 
 #more readable colors of dirs in ls colorized output
 export LS_COLORS=$LS_COLORS:'di=0;35:'

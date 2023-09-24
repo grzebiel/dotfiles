@@ -6,11 +6,33 @@ lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr})
 end)
 
--- When you don't have mason.nvim installed
--- You'll need to list the servers installed in your system
-lsp.setup_servers({'tsserver', 'eslint'})
-
+local ih = require('lsp-inlayhints')
+local lspconfig = require('lspconfig')
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.clangd.setup {
+    on_attach = function(client, bufnr)
+        ih.on_attach(client, bufnr)
+    end,
+    settings = {
+        clangd = {
+            hint = {
+                enable = true,
+            }
+        }
+    }
+}
+lspconfig.rust_analyzer.setup {
+    on_attach = function(client, bufnr)
+        ih.on_attach(client, bufnr)
+    end,
+    settings = {
+        ['rust-analyzer'] = {
+            hint = {
+                enable = true,
+            }
+        }
+    }
+}
 
 lsp.setup()

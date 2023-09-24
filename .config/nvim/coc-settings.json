@@ -15,5 +15,8 @@
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
     "rust-analyzer.hover.documentation.enable": true,
-    "pyright.trace.server": "verbose"
+    "pyright.trace.server": "verbose",
+    "clangd.arguments": [
+      "--log=verbose"
+    ]
 }
