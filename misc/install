@@ -22,9 +22,12 @@ sudo systemctl enable sleep_lock.service
 # enable the ssh-agent
 systemctl enable --user ssh-agent.service
 
-# allow user to activate existing wifi profile
-sudo cp switch_wifi_to /usr/local/bin
-sudo bash -c 'echo "grzebiel ALL = NOPASSWD : /usr/local/bin/switch_wifi_to" > /etc/sudoers.d/10_switch_wifi_to'
-
 # add modification rights brightness to video group via udev
 sudo cp backlight.rules /etc/udev/rules.d
+
+# keyd configuration
+sudo cp keyd/default.conf /etc/keyd/default.conf
+sudo systemctl enable keyd
+sudo systemctl start keyd
+sudo keyd reload
+
