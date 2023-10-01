@@ -232,6 +232,8 @@ set $Locker i3lock -c 000000 && sleep 1
 
 bindsym Mod1+control+s exec --no-startup-id  systemctl suspend, mode "default"
 bindsym Mod1+control+l exec --no-startup-id $Locker
+# autolock
+exec --no-starutp-id autolock -time 15 -locker '$Locker'
 #screenshot
 #bindsym $mod+control+p exec scrot -u -e 'mv $f /tmp'
 
@@ -262,6 +264,6 @@ exec --no-startup-id /home/grzebiel/.screenlayout/current
 gaps inner 8px
 # gaps outer 4 px
 smart_gaps off
-exec --no-startup-id feh --bg-fill --bg-scale ~/Desktop/walpaper.jpg
 exec --no-startup-id picom
 exec --no-startup-id bash ~/.config/polybar/launch.sh
+

@@ -80,6 +80,7 @@ vim.cmd [[
     autocmd VimEnter * command! -bang -nargs=* Ag
         \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'down': '40%'}))
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+    let $FZF_DEFAULT_COMMAND="rg   --hidden -l -g '!.git' \"\""
     let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4"
 ]]
 

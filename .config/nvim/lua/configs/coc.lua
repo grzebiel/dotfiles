@@ -1,3 +1,4 @@
+print("coc config is being included")
 local keyset = vim.keymap.set
 -- Auto complete
 function _G.check_back_space()
