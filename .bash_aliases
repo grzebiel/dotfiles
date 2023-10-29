@@ -37,7 +37,7 @@ fi
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
-alias lla='ls -lA'
+alias lla='ls -lhA'
 
 # go up
 alias ..='cd ..; pwd; ls'
@@ -79,3 +79,6 @@ alias music='ncmpcpp'
 
 #sane date format
 alias isodate='date +"%Y-%m-%d"'
+
+# use kitty ssh
+alias kssh='kitten ssh'

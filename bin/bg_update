@@ -1,3 +1,9 @@
 #!/bin/bash
 
-feh --bg-fill "$(shuf -n1 -e ~/.wallpappers/*)"
+if [[ $(( $RANDOM % 10 )) -eq 0 ]];
+then
+    wget -q -O ~/.wallpappers/random.jpg https://unsplash.it/2560/1440/?random && feh --bg-fill ~/.wallpappers/random.jpg
+else
+    rm -f ~/.wallpappers/random.jpg
+    feh --bg-fill "$(shuf -n1 -e ~/.wallpappers/*)"
+fi
