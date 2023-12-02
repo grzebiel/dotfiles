@@ -3,7 +3,7 @@ Description=refresh wallpaper
 
 [Timer]
 OnBootSec=30
-OnUnitActiveSec=10m
+OnUnitActiveSec=30m
 
 [Install]
 WantedBy=timers.target
