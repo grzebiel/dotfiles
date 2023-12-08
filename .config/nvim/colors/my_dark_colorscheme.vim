@@ -27,3 +27,5 @@ hi Statement ctermfg=11 gui=NONE guifg=#ffff60
 hi WhichKeyFloat ctermbg=NONE guibg=NONE
 
 hi Normal ctermbg=black
+" Noice cursor in popup cmd
+hi NoiceCursor cterm=reverse gui=reverse

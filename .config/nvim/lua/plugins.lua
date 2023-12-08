@@ -114,18 +114,18 @@ return require('packer').startup(function(use)
     config = function() require "configs/toggleterm" end,
   }
 
-  use {
-  "folke/noice.nvim",
-  config = function() require "configs/noice" end,
-  requires = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    "MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",
-    }
-  }
+  -- use {
+  -- "folke/noice.nvim",
+  -- config = function() require "configs/noice" end,
+  -- requires = {
+  --   -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --   "MunifTanjim/nui.nvim",
+  --   -- OPTIONAL:
+  --   --   `nvim-notify` is only needed, if you want to use the notification view.
+  --   --   If not available, we use `mini` as the fallback
+  --   "rcarriga/nvim-notify",
+  --   }
+  -- }
 
   -- openai interface
   -- use 'madox2/vim-ai'
