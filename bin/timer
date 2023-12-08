@@ -1,0 +1,107 @@
+#!/bin/bash
+# set -e
+# set -x
+
+POSITIONAL_ARGS=()
+
+TIMERS_DIR=/tmp/timers
+
+list() {
+    CUR_TIME="$(date +%s)"
+    (
+        echo "TITLE;LEFT"
+        find "$TIMERS_DIR" -type f | while read -r f; do awk -v title="$(basename "$f")" -v cur="$CUR_TIME" '{print title ";" $2-cur "s"}' < "$f"; done  | sort -k 2 -n -r
+    ) | column -t -s';'
+}
+
+print_help() {
+    cat <<EOF
+    simple timer manager,
+    USAGE: $1 -l|--list                # list all active timers
+    USAGE: $1 -h|--help                # print this help
+    USAGE: $1 -k|--kill TITLE [TITLE]  # stops the timer with TITLE
+    USAGE: $1 -q|--quiet               # list only TITLEs of active timers ##TOOD
+    USAGE: $1 TIMEOUT TITLE MESSAGE
+        TIMEOUT             timeout in second to fire notification
+        TITLE               Title of the message (also used as a key for closing)
+        MESSAGE             Opitional: message to be passed to the notification
+EOF
+}
+
+stop() {
+    TITLE="$1"
+    TIMER_FILE="$TIMERS_DIR/$TITLE"
+    # Kill already running timer with same title
+    [[ -f $TIMER_FILE ]] && kill "$(awk '{print $1}' < "$TIMER_FILE")" && echo "Killed exiting timer: $TITLE" && rm "$TIMER_FILE"
+
+}
+
+look_once() {
+        CUR_TIME="$(date +%s)"
+        echo -e $(find "$TIMERS_DIR" -type f | while read -r f; do awk -v title="$(basename "$f")" -v cur="$CUR_TIME" '{print title " " $2-cur "s"}' < "$f"; done  | sort -k 2 -n | head -n 1)
+}
+
+watch_top() {
+    while true
+    do
+        look_once
+        sleep 1
+        # echo -ne \\r
+    done
+}
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -l|--list)
+        shift
+        list
+        exit
+      ;;
+    -h|--help)
+        shift
+        print_help "$(basename "$0")"
+        exit
+    ;;
+    -k|--kill)
+        while [[ $# -gt 0 ]]; do
+            stop $2
+            shift
+        done
+        exit
+    ;;
+    -o|--once)
+        shift
+        look_once
+        exit
+    ;;
+    -w|--watch)
+        TITLE=$2
+        shift
+        shift
+        [[ $TITLE -eq "" ]] && watch_top || watch "$TITLE"
+        exit
+    ;;
+
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+
+TIMEOUT="${POSITIONAL_ARGS[0]}"
+TITLE="${POSITIONAL_ARGS[1]}"
+MESSAGE="${POSITIONAL_ARGS[2]}"
+
+mkdir -p "$TIMERS_DIR"
+
+TIMER_FILE="$TIMERS_DIR/$TITLE"
+# Start Timer
+nohup bash -c "sleep \"$TIMEOUT\" && notif $TITLE $MESSAGE && rm \"$TIMER_FILE\"" &
+PID=$!
+
+stop "$TITLE"
+
+# Store pid for further maintanace
+CUR=$(date +%s)
+echo "$PID $((CUR + TIMEOUT))" > "$TIMER_FILE"

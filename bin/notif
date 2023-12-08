@@ -1,0 +1,5 @@
+#!/bin/bash
+TITLE="$1"
+MESSAGE="$2"
+dunstify --appname=TIMER --urgency=critical "$TITLE" "$MESSAGE"
+pushover "$TITLE" "$MESSAGE"
