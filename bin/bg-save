@@ -1,0 +1,10 @@
+#!/bin/bash
+
+RAND="$HOME/.wallpappers/saved_$RANDOM.jpg"
+
+while [[ -e $RAND ]]
+do
+    RAND="saved_$RANDOM"
+done
+
+cp ~/.wallpappers/random.jpg "$RAND"

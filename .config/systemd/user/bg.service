@@ -2,7 +2,7 @@
 Description=sets background
 
 [Service]
-ExecStart=/home/grzebiel/bin/bg_update
+ExecStart=/home/grzebiel/bin/bg-update
 
 [Install]
 WantedBy=default.target
