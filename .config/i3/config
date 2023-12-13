@@ -270,3 +270,6 @@ exec --no-startup-id bash ~/.config/polybar/launch.sh
 # dunst
 bindsym $mod+shift+n exec dunstctl history-pop
 bindsym $mod+n exec dunstctl close
+
+# map tablet to other screen
+bindsym $mod+shift+w exec xsetwacom set "Wacom Intuos BT M Pen stylus" MapToOutput next

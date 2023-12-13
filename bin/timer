@@ -46,9 +46,33 @@ watch_top() {
     do
         look_once
         sleep 1
-        # echo -ne \\r
     done
 }
+
+interpret_time() {
+    duration_string=$1
+    total_seconds=0
+    regex=" *([0-9]+) *([hms])? *"
+
+    while [[ $duration_string =~ $regex ]]; do
+      quantity=${BASH_REMATCH[1]}
+      unit=${BASH_REMATCH[2]}
+      seconds=$((quantity))
+      if [[ $unit == "h" ]]; then
+        seconds=$((seconds * 3600))
+      fi
+
+      if [[ $unit == "m" ]]; then
+        seconds=$((seconds * 60))
+      fi
+
+      total_seconds=$((total_seconds + seconds))
+      duration_string=${duration_string#"${BASH_REMATCH[0]}"}
+    done
+
+    echo $total_seconds
+}
+
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -89,7 +113,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-TIMEOUT="${POSITIONAL_ARGS[0]}"
+TIMEOUT=$( interpret_time "${POSITIONAL_ARGS[0]}" )
 TITLE="${POSITIONAL_ARGS[1]}"
 MESSAGE="${POSITIONAL_ARGS[2]}"
 
