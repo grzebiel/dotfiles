@@ -20,7 +20,9 @@ print_help() {
     USAGE: $1 -l|--list                # list all active timers
     USAGE: $1 -h|--help                # print this help
     USAGE: $1 -k|--kill TITLE [TITLE]  # stops the timer with TITLE
-    USAGE: $1 -q|--quiet               # list only TITLEs of active timers ##TOOD
+    USAGE: $1 -o|--once                # print timer the closed to elaps
+    USAGE: $1 -w|--watch               # continuosly print the closest to elapse timer
+                                       # usefull for status bars
     USAGE: $1 TIMEOUT TITLE [MESSAGE]
 
         TIMEOUT     timeout with optional duration suffixes
