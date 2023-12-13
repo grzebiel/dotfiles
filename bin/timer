@@ -21,10 +21,12 @@ print_help() {
     USAGE: $1 -h|--help                # print this help
     USAGE: $1 -k|--kill TITLE [TITLE]  # stops the timer with TITLE
     USAGE: $1 -q|--quiet               # list only TITLEs of active timers ##TOOD
-    USAGE: $1 TIMEOUT TITLE MESSAGE
-        TIMEOUT             timeout in second to fire notification
-        TITLE               Title of the message (also used as a key for closing)
-        MESSAGE             Opitional: message to be passed to the notification
+    USAGE: $1 TIMEOUT TITLE [MESSAGE]
+
+        TIMEOUT     timeout with optional duration suffixes
+                      e.g. 3m5s1h (seconds by default)
+        TITLE       Title of the message (also used as a key for closing)
+        MESSAGE     Opitional: message to be passed to the notification
 EOF
 }
 
