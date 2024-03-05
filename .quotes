@@ -11,10 +11,10 @@ echo -e "The innovation the industry talks about so much is bullshit (...) Anybo
 echo -e "If we won't focuse on any plan we will not get anywhare, we will get a little bit everywhere\n\t-- Bjerne Stroustrup"
 echo -e "We are the only species that will fallow unstable leaders\n\t-- Cesar Millan"
 echo -e "I apologize for such a long letter - I didn't have time to write a short one.\n\t-- Mark Twain"
+echo -e "The way that people act in the internet on aprils fools day is the way they shoould act in general.\n\t-- Thor from PirateSoftware"
 
 #random quote
 echo -e "\n"
 fortune -a
 echo -e
 echo -e "\n"
-

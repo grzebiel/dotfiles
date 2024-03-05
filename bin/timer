@@ -5,6 +5,7 @@
 POSITIONAL_ARGS=()
 
 TIMERS_DIR=/tmp/timers
+mkdir -p "$TIMERS_DIR"
 
 list() {
     CUR_TIME="$(date +%s)"
@@ -121,7 +122,6 @@ TIMEOUT=$( interpret_time "${POSITIONAL_ARGS[0]}" )
 TITLE="${POSITIONAL_ARGS[1]}"
 MESSAGE="${POSITIONAL_ARGS[2]}"
 
-mkdir -p "$TIMERS_DIR"
 
 TIMER_FILE="$TIMERS_DIR/$TITLE"
 # Start Timer
