@@ -7,14 +7,23 @@
 	ci = commit
 	st = status
 	br = branch
+	dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 [diff]
-	tool = default-difftool
+	tool = difftastic
+	external= difft
+
+[difftool]
+	prompt = false
+
 [difftool "default-difftool"]
 	cmd = vimdiff $LOCAL $REMOTE
 
+[difftool "default-difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+
 [core]
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	; pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
@@ -26,3 +35,5 @@
 	defaultBranch = master
 [push]
 	autoSetupRemote = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

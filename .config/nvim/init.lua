@@ -34,6 +34,7 @@ vim.opt.scrolloff=5
 vim.opt.cinoptions="N-s"
 
 -- colorscheme
+vim.cmd [[colorscheme vim]]
 vim.cmd [[colorscheme my_dark_colorscheme]]
 
 -- lightline options
@@ -79,9 +80,23 @@ vim.cmd [[
 
     autocmd VimEnter * command! -bang -nargs=* Ag
         \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'down': '40%'}))
+
+    " An action can be a reference to a function that processes selected lines
+    function! s:build_quickfix_list(lines)
+      call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
+      copen
+      cc
+    endfunction
+
+    let g:fzf_action = {
+      \ 'ctrl-q': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-x': 'split',
+      \ 'ctrl-v': 'vsplit' }
+
     let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
     let $FZF_DEFAULT_COMMAND="rg   --hidden -l -g '!.git' \"\""
-    let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4"
+    let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --bind ctrl-a:select-all"
 ]]
 
 -- goyo and limelight

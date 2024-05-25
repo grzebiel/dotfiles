@@ -1,8 +1,10 @@
-set background=dark
-highlight clear"preview"}
-if exists("syntax_on")
-    syntax reset
-endif
+"highlight clear"preview"}
+"if exists("syntax_on")
+"    syntax reset
+"endif
+"hi clear
+colorscheme vim
+"set background=dark
 let g:colors_name = "my_dark_colorscheme"
 
 hi CursorLine ctermbg=234 guibg=#151515 cterm=NONE gui=NONE

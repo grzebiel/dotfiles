@@ -47,9 +47,6 @@ if [ -f ~/.quotes ]; then
     source ~/.quotes
 fi
 
-#custom scripts location added to path
-export PATH=~/bin:$PATH
-
 #cd history
 source_if_exists ~/.adc_func.sh
 
@@ -72,9 +69,6 @@ source_if_exists ~/.bash_aliases
 #thefuck
 thefuck --version &> /dev/null && eval "$(thefuck --alias)"
 
-#print my tasks
-task --version &> /dev/null  && task list
-
 #ssh agent
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
@@ -88,3 +82,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+complete -C /usr/bin/terraform terraform
+
+#zoxide (cd replacment)
+eval "$(zoxide init bash)"

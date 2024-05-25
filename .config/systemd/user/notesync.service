@@ -1,0 +1,8 @@
+[Unit]
+Description=sync notes with repo
+
+[Service]
+ExecStart=/home/grzebiel/bin/notesync
+
+[Install]
+WantedBy=default.target
