@@ -24,3 +24,5 @@ application/x-hdf=gvim.desktop;
 application/json=gvim.desktop;vim.desktop;
 audio/x-gtp=tuxguitar.desktop;
 text/plain=gvim.desktop;
+image/png=chromium.desktop;
+application/vnd.microsoft.portable-executable=wine.desktop;

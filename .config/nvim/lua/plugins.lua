@@ -114,6 +114,14 @@ return require('packer').startup(function(use)
     config = function() require "configs/toggleterm" end,
   }
 
+  -- dap
+  use {
+    "williamboman/mason.nvim",
+    "mfussenegger/nvim-dap",
+    "jay-babu/mason-nvim-dap.nvim",
+    config = function() require "configs/mason" end,
+  }
+
   -- use {
   -- "folke/noice.nvim",
   -- config = function() require "configs/noice" end,
