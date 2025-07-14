@@ -7,34 +7,34 @@ lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr, preserve_mappings = false})
 end)
 
-local ih = require('lsp-inlayhints')
+-- local ih = require('lsp-inlayhints')
 local lspconfig = require('lspconfig')
--- (Optional) Configure lua language server for neovim
-lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-lspconfig.clangd.setup {
-    on_attach = function(client, bufnr)
-        ih.on_attach(client, bufnr)
-    end,
-    settings = {
-        clangd = {
-            hint = {
-                enable = true,
-            }
-        }
-    }
-}
-lspconfig.rust_analyzer.setup {
-    on_attach = function(client, bufnr)
-        ih.on_attach(client, bufnr)
-    end,
-    settings = {
-        ['rust-analyzer'] = {
-            hint = {
-                enable = true,
-            }
-        }
-    }
-}
+-- -- (Optional) Configure lua language server for neovim
+-- lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+-- lspconfig.clangd.setup {
+--     on_attach = function(client, bufnr)
+--         ih.on_attach(client, bufnr)
+--     end,
+--     settings = {
+--         clangd = {
+--             hint = {
+--                 enable = true,
+--             }
+--         }
+--     }
+-- }
+-- lspconfig.rust_analyzer.setup {
+--     on_attach = function(client, bufnr)
+--         ih.on_attach(client, bufnr)
+--     end,
+--     settings = {
+--         ['rust-analyzer'] = {
+--             hint = {
+--                 enable = true,
+--             }
+--         }
+--     }
+-- }
 
 local cmp = require('cmp')
 local cmp_action = lsp.cmp_action()

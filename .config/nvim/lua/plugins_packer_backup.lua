@@ -33,8 +33,8 @@ return require('packer').startup(function(use)
 
   -- ack/ag support
   use 'mileszs/ack.vim'
-
   use 'octol/vim-cpp-enhanced-highlight'
+
   use 'nickhutchinson/vim-cmake-syntax'
   use 'potatoesmaster/i3-vim-syntax'
 
@@ -73,12 +73,6 @@ return require('packer').startup(function(use)
     }
   }
 
-  -- lsp-inlayhits
-  use {
-      'lvimuser/lsp-inlayhints.nvim',
-      config = function() require 'configs.lsp_inlayhints' end,
-  }
-
   -- treesitter
   use {
       'nvim-treesitter/nvim-treesitter',
@@ -105,6 +99,7 @@ return require('packer').startup(function(use)
   -- keymaps popup
   use {
     "folke/which-key.nvim",
+    requires = { "echasnovski/mini.icons" },
     config = function() require 'configs/which_key' end
   }
 
@@ -116,10 +111,45 @@ return require('packer').startup(function(use)
 
   -- dap
   use {
-    "williamboman/mason.nvim",
-    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+    requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+    config = function() require "configs/dap" end
+  }
+  use {
     "jay-babu/mason-nvim-dap.nvim",
-    config = function() require "configs/mason" end,
+    requires = { "williamboman/mason.nvim"},
+    config = function() require "configs/mason" end
+  }
+  use "julianolf/nvim-dap-lldb"
+  use {
+    "OXY2DEV/markview.nvim",
+    requires = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons"
+    },
+    config = function() require "configs.markview_nvim" end
+  }
+
+  use {
+      "simrat39/rust-tools.nvim",
+        config = function() require "configs/rust-tools" end
+  }
+
+  use {
+      "m4xshen/hardtime.nvim",
+      requires = {"MunifTanjim/nui.nvim" },
+      config = function() require("hardtime").setup() end
+  }
+
+  -- trouble
+  -- use {
+  --     "folke/trouble.nvim",
+  --     config = function() require "configs/trouble" end,
+  -- }
+  use {
+      "rcarriga/nvim-notify",
+      lazy = false,
+      config = function() require "configs/notify" end,
   }
 
   -- use {

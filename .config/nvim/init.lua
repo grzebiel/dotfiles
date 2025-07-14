@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-require('plugins')
+vim.g.maplocalleader = "\\"
+require('config.lazy')
 
 -- display status line only once
 vim.opt.laststatus = 3
@@ -37,24 +38,6 @@ vim.opt.cinoptions="N-s"
 vim.cmd [[colorscheme vim]]
 vim.cmd [[colorscheme my_dark_colorscheme]]
 
--- lightline options
-vim.cmd [[    let g:lightline = {
-          \ 'colorscheme': 'powerline',
-          \ 'active': {
-          \   'left': [ [ 'mode', 'paste' ],
-          \             [ 'fugitive', 'readonly', 'relativepath', 'modified' ] ]
-          \ },
-          \ 'component': {
-          \   'readonly': '%{&readonly?"":""}',
-          \   'modified': '%{&filetype=="help"?"":&modified?" ":&modifiable?"":"-"}'
-          \ },
-          \ 'component_function': {
-          \   'fugitive': 'LightLineFugitive',
-          \ },
-          \ 'separator': { 'left': '', 'right': '' },
-          \ 'subseparator': { 'left': '|', 'right': '|' }
-          \ } ]]
-
 vim.cmd [[
     function! LightLineFugitive()
         return exists('*fugitive#head') ? ' ' . fugitive#head() : ''
@@ -70,34 +53,6 @@ vim.cmd [[
 
 -- gitgutter
 vim.g.gitgutter_map_keys = 0
-
--- fzf bindings
-vim.cmd [[
-    nnoremap <Leader>s :Buffers<cr>
-    nnoremap <Leader>g "zyiw:Ag <C-r>z<cr>
-    nnoremap <Leader>/ :Ag 
-    nnoremap <silent> <c-p> :FZF<cr>
-
-    autocmd VimEnter * command! -bang -nargs=* Ag
-        \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'down': '40%'}))
-
-    " An action can be a reference to a function that processes selected lines
-    function! s:build_quickfix_list(lines)
-      call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
-      copen
-      cc
-    endfunction
-
-    let g:fzf_action = {
-      \ 'ctrl-q': function('s:build_quickfix_list'),
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-x': 'split',
-      \ 'ctrl-v': 'vsplit' }
-
-    let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
-    let $FZF_DEFAULT_COMMAND="rg   --hidden -l -g '!.git' \"\""
-    let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --bind ctrl-a:select-all"
-]]
 
 -- goyo and limelight
 vim.cmd [[
@@ -189,3 +144,21 @@ vim.opt.completeopt = {"menuone", "noselect", "preview"}
 
 -- more colors
 vim.opt.termguicolors = true
+
+-- ctrl+backspace to clear word
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
+
+
+-- neovide transperanerancy
+vim.g.neovide_transparency = 0.8
+
+-- enable inlay hints
+vim.lsp.inlay_hint.enable(true, { 0 })
+
+-- diagnostics
+vim.diagnostic.config({ virtual_text = true });
+vim.keymap.set('n', 'gK', function()
+    local new_config = not vim.diagnostic.config().virtual_lines
+    vim.diagnostic.config({ virtual_lines = new_config, virtual_text = not new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })
+-- vim.diagnostic.config({ virtual_text = true });

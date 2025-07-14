@@ -5,6 +5,7 @@ require("toggleterm").setup{
   direction = "float",
   float_opts = {
     border = "curved",
+    -- winblend = 30,
     highlights = {
       border = "Normal",
       background = "Normal",
@@ -34,3 +35,7 @@ vim.cmd([[nnoremap <c-\> :1ToggleTerm direction=horizontal<cr>]])
 vim.cmd([[tnoremap <c-\> <c-\><c-n>:1ToggleTerm<cr>]])
 vim.cmd([[nnoremap <c--> :2ToggleTerm direction=float<cr>]])
 vim.cmd([[tnoremap <c--> <c-\><c-n>:2ToggleTerm direction=float<cr>]])
+
+
+-- always enter insert mode when entering terminal window
+vim.cmd([[autocmd BufWinEnter,WinEnter term://* startinsert]])

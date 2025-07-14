@@ -11,7 +11,16 @@ list() {
     CUR_TIME="$(date +%s)"
     (
         echo "TITLE;LEFT"
-        find "$TIMERS_DIR" -type f | while read -r f; do awk -v title="$(basename "$f")" -v cur="$CUR_TIME" '{print title ";" $2-cur "s"}' < "$f"; done  | sort -k 2 -n -r
+        find "$TIMERS_DIR" -type f |
+            while read -r f; do
+                awk -v title="$(basename "$f")" -v cur="$CUR_TIME" '{
+                    tot_seconds=$2-cur;
+                    hours = int(tot_seconds/3600);
+                    minutes = int(tot_seconds%3600)/60;
+                    seconds = tot_seconds%60;
+                    printf "%s;%02d:%02d:%02d\n", title, hours, minutes, seconds;
+                }'< "$f";
+            done  | sort -k 2 -n -r
     ) | column -t -s';'
 }
 
@@ -43,7 +52,15 @@ stop() {
 
 look_once() {
         CUR_TIME="$(date +%s)"
-        echo -e $(find "$TIMERS_DIR" -type f | while read -r f; do awk -v title="$(basename "$f")" -v cur="$CUR_TIME" '{print title " " $2-cur "s"}' < "$f"; done  | sort -k 2 -n | head -n 1)
+        echo -e $(find "$TIMERS_DIR" -type f |
+            while read -r f; do
+                awk -v title="$(basename "$f")" -v cur="$CUR_TIME" '{
+                    tot_seconds=$2-cur;
+                    hours = int(tot_seconds/3600);
+                    minutes = int(tot_seconds%3600)/60;
+                    seconds = tot_seconds%60;
+                    printf "%s %02d:%02d:%02d\n", title, hours, minutes, seconds;
+                }' < "$f"; done  | sort -k 2 -n | head -n 1)
 }
 
 watch_top() {
