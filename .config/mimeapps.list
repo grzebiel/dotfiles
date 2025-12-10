@@ -1,19 +1,23 @@
 [Default Applications]
 x-scheme-handler/mailto=userapp-Thunderbird-JO09VZ.desktop
 message/rfc822=userapp-Thunderbird-JO09VZ.desktop
-text/html=google-chrome.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-x-scheme-handler/about=google-chrome.desktop
-x-scheme-handler/unknown=google-chrome.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
 x-scheme-handler/discord-389176180877688832=discord-389176180877688832.desktop
+x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/discord-418794856081653760=discord-418794856081653760.desktop
+x-scheme-handler/webcal=brave-browser.desktop
+x-scheme-handler/auth-drata-agent=drata-agent.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-JO09VZ.desktop;
 message/rfc822=userapp-Thunderbird-JO09VZ.desktop;
 application/x-shellscript=gvim.desktop;
-application/pdf=google-chrome.desktop;org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
+application/pdf=brave-browser.desktop;google-chrome.desktop;org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
 application/x-troff-man=gvim.desktop;
 video/mp4=vlc.desktop;
 video/x-matroska=vlc.desktop;
@@ -26,3 +30,6 @@ audio/x-gtp=tuxguitar.desktop;
 text/plain=gvim.desktop;
 image/png=chromium.desktop;
 application/vnd.microsoft.portable-executable=wine.desktop;
+image/jpeg=feh.desktop;gimp.desktop;org.xfce.ristretto.desktop;google-chrome.desktop;
+application/sql=neovide.desktop;
+text/csv=gvim.desktop;

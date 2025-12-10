@@ -37,7 +37,6 @@ return {
 
             vim.keymap.set('n', '<C-p>', function()
                 require('telescope.builtin').find_files{
-                    hidden = true
                 }
             end, {desc = "telescope files"});
 
