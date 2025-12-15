@@ -8,9 +8,9 @@
 	st = status
 	br = branch
 	dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+
 [diff]
-	tool = difftastic
-	external= difft
+    external = difft
 
 [difftool]
 	prompt = false

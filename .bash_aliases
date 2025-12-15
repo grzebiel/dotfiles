@@ -65,7 +65,7 @@ alias vim='nvim'
 alias tmux="TERM=xterm-256color tmux"
 
 # pacaur instead of pacman
-if yay --version > /dev/null
+if which yay > /dev/null
 then
     alias pacman='yay'
 fi

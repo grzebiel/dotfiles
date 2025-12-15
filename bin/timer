@@ -142,7 +142,7 @@ MESSAGE="${POSITIONAL_ARGS[2]}"
 
 TIMER_FILE="$TIMERS_DIR/$TITLE"
 # Start Timer
-nohup bash -c "sleep \"$TIMEOUT\" && notif $TITLE $MESSAGE && rm \"$TIMER_FILE\"" &
+nohup bash -c "sleep \"$TIMEOUT\" ; notif $TITLE $MESSAGE ; rm \"$TIMER_FILE\"" &
 PID=$!
 
 stop "$TITLE"
