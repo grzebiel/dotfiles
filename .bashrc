@@ -1,4 +1,6 @@
 #!/bin/bash
+
+export PATH="$HOME/configs/bin:$HOME/bin:$PATH"
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -23,7 +25,7 @@ case "$TERM" in
 esac
 
 if [ "$color_prompt" = yes ]; then
-    export PS1='$(bash sync_ps)$(git_ps)\[\033[01;037m\]\h$ \[\033[00m'
+    export PS1='$(bash sync_ps)$(git_ps)\n\[\033[01;037m\]\h$ \[\033[00m'
 else
     export PS1='$ '
 fi
@@ -60,8 +62,14 @@ export LS_COLORS=$LS_COLORS:'di=0;35:'
 export GOPATH=~/workspace/go/
 
 #fuzzy finder for bash (fzf https://github.com/junegunn/fzf) extension
-source_if_exists /usr/share/fzf/key-bindings.bash
-source_if_exists /usr/share/fzf/completion.bash
+if [ $HOSTNAME == "odin" ]
+then
+    source_if_exists /usr/share/doc/fzf/examples/key-bindings.bash
+    source_if_exists /usr/share/doc/fzf/examples/completion.zsh
+else
+    source_if_exists /usr/share/fzf/key-bindings.bash
+    source_if_exists /usr/share/fzf/completion.bash
+fi
 
 #custom aliases
 source_if_exists ~/.bash_aliases
@@ -87,3 +95,5 @@ complete -C /usr/bin/terraform terraform
 
 #zoxide (cd replacment)
 eval "$(zoxide init bash)"
+export PATH="$HOME/.local/bin:$PATH"
+. "$HOME/.cargo/env"
